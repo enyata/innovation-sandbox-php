@@ -2,13 +2,15 @@
 
 namespace InnovationSandbox\NIBSS;
 
-use InnovationSandbox\Common\HttpRequest;
+use InnovationSandbox\NIBSS\Common\ModuleRequest;
+use GuzzleHttp\Client;
 
 class FingerPrint {
 private $httpRequest;
 
-    public function __construct(){
-        $this->httpRequest = new HttpRequest;
+    public function __construct(Client $client = null){
+        $this->client = $client ? $client : new Client();
+        $this->httpRequest = new ModuleRequest($this->client);
     }
 
     public function VerifyFingerPrint($data){
