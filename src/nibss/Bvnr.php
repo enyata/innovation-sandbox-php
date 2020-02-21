@@ -2,8 +2,8 @@
 
 namespace InnovationSandbox\NIBSS;
 
-use InnovationSandbox\NIBSS\Common\ModuleRequest;
 use GuzzleHttp\Client;
+use InnovationSandbox\NIBSS\Common\ModuleRequest;
 
 class Bvnr {
 private $httpRequest, $client;
@@ -16,8 +16,9 @@ private $httpRequest, $client;
     public function Reset($data){
         try{
             $data['path'] = '/nibss/bvnr/Reset';
-            return $this->httpRequest->trigger($data);
+            $data['method'] = 'POST';
 
+            return $this->httpRequest->trigger($data);
         } catch(\Exception $error){
             return $error->getMessage();
         }
@@ -27,11 +28,11 @@ private $httpRequest, $client;
         try{
             $data['path'] = '/nibss/bvnr/VerifySingleBVN';
             $data['payload'] = ['BVN' => $data['bvn']];
+            $data['method'] = 'POST';
 
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 
@@ -39,11 +40,11 @@ private $httpRequest, $client;
         try{
             $data['path'] = '/nibss/bvnr/VerifyMultipleBVN';
             $data['payload'] = ['BVNS' => $data['bvn']];
+            $data['method'] = 'POST';
 
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 
@@ -51,11 +52,11 @@ private $httpRequest, $client;
         try{
             $data['path'] = '/nibss/bvnr/GetSingleBVN';
             $data['payload'] = ['BVN' => $data['bvn']];
+            $data['method'] = 'POST';
 
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 
@@ -63,11 +64,11 @@ private $httpRequest, $client;
         try{
             $data['path'] = '/nibss/bvnr/GetMultipleBVN';
             $data['payload'] = ['BVNS' => $data['bvn']];
+            $data['method'] = 'POST';
 
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 
@@ -75,11 +76,10 @@ private $httpRequest, $client;
         try{
             $data['path'] = '/nibss/bvnr/IsBVNWatchlisted';
             $data['payload'] = ['BVN' => $data['bvn']];
-
+            $data['method'] = 'POST';
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 }

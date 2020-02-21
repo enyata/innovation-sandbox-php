@@ -2,8 +2,8 @@
 
 namespace InnovationSandbox\NIBSS;
 
-use InnovationSandbox\NIBSS\Common\ModuleRequest;
 use GuzzleHttp\Client;
+use InnovationSandbox\NIBSS\Common\ModuleRequest;
 
 class FingerPrint {
 private $httpRequest;
@@ -17,11 +17,11 @@ private $httpRequest;
         try{
             $data["path"] = '/nibss/fp/VerifyFingerPrint';
             $data["payload"] = $data["fingerPrintData"];
-
+            $data['method'] = 'POST';
+            
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 }

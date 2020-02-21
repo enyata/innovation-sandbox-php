@@ -15,25 +15,25 @@ private $httpRequest;
 
     public function ValidateRecord($data){
         try{
-            $data["path"] = '/nibss/BVNPlaceHolder/ValidateRecord';
-            $data["payload"] = $data["Record"];
+            $data['path'] = '/nibss/BVNPlaceHolder/ValidateRecord';
+            $data['payload'] = $data['Record'];
+            $data['method'] = 'POST';
 
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 
     public function ValidateRecords($data){
         try{
-            $data["path"] = '/nibss/BVNPlaceHolder/ValidateRecords';
-            $data["payload"] = $data["Records"];
-
+            $data['path'] = '/nibss/BVNPlaceHolder/ValidateRecords';
+            $data['payload'] = $data['Records'];
+            $data['method'] = 'POST';
+            
             return $this->httpRequest->trigger($data);
-
         } catch(\Exception $error){
-            return $error.message();
+            return $error->getMessage();
         }
     }
 }
