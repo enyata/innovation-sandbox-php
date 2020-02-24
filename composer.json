@@ -1,5 +1,5 @@
 {
-    "name": "innovation-sandbox/innovation-sandbox",
+    "name": "enyata/innovation-sandbox",
     "description": "PHP package for Innovation Sandbox",
     "minimum-stability": "dev",
     "type": "library",

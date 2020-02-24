@@ -5,6 +5,7 @@ php:
   - '7.0'
   - '7.1'
   - '7.2'
+  - '7.4'
 
 install:
  - composer install
@@ -19,15 +20,14 @@ script:
   - vendor/bin/phplint
   - vendor/bin/phpunit
 
-
 jobs:
   include:
-    - stage: deploy
+    - stage: packagist
       php: '7.4'
       script: echo 'deploy ready?'
       deploy:
-        edge: true
-        provider: packagist
+        provider: script
+        script: bash scripts/deploy.sh
         on:
           tags: true
           branch: master
