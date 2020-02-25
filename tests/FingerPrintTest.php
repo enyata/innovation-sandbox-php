@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use InnovationSandbox\NIBSS\FingerPrint;
-use InnovationSandbox\NIBSS\Common\Hash; 
+use \InnovationSandbox\NIBSS\FingerPrint;
+use \InnovationSandbox\NIBSS\Common\Hash; 
 
 class FingerPrintTest extends TestCase{
 

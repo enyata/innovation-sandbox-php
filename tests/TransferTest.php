@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use InnovationSandbox\Sterling\Transfer;
+use \InnovationSandbox\Sterling\Transfer;
 
 class TransferTest extends TestCase{
 
