@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use InnovationSandbox\NIBSS\Placeholder;
-use InnovationSandbox\NIBSS\Common\Hash; 
+use \InnovationSandbox\NIBSS\PlaceHolder;
+use \InnovationSandbox\NIBSS\Common\Hash; 
 
 class PlaceHolderTest extends TestCase{
 
@@ -27,7 +27,7 @@ class PlaceHolderTest extends TestCase{
             'handler' => $this->mockHandler,
             'base_uri' => $this->base_uri
         ]);
-        $this->apiClient = new Placeholder($httpClient);
+        $this->apiClient = new PlaceHolder($httpClient);
         $this->fixture = new Nibss();
         $this->hash = new Hash();
     }

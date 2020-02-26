@@ -1,12 +1,11 @@
 <?php
-
 require_once './tests/Fixtures/Sterling.php';
 
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use InnovationSandbox\Sterling\Account;
+use \InnovationSandbox\Sterling\Account;
 use GuzzleHttp\Middleware;
 
 class AccountTest extends TestCase{

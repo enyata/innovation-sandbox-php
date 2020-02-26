@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use InnovationSandbox\NIBSS\Bvnr;
-use InnovationSandbox\NIBSS\Common\Hash; 
+use \InnovationSandbox\NIBSS\Bvnr;
+use \InnovationSandbox\NIBSS\Common\Hash; 
 
 class BvnrTest extends TestCase{
 
