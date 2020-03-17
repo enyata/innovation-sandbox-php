@@ -1,13 +1,14 @@
 <?php
-require_once './tests/Fixtures/Sterling.php';
+
+require_once './tests/Fixtures/Atlabs.php';
 
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use \InnovationSandbox\Sterling\Account;
+use \InnovationSandbox\Atlabs\Token;
 
-class AccountTest extends TestCase{
+class TokenTest extends TestCase{
 
     private $mockHandler, 
             $apiClient,
@@ -24,23 +25,22 @@ class AccountTest extends TestCase{
             'handler' => $this->mockHandler,
             'base_uri' => $this->base_uri
         ]);
-        $this->apiClient = new Account($httpClient);
-        $this->fixture = new Sterling();
+        $this->apiClient = new Token($httpClient);
+        $this->fixture = new Atlabs();
     }
 
-    public function testShouldVerifyTransfer(){
-        $bvnData = $this->fixture->interbankRequest();
+    public function testShouldSendAirtime(){
+        $data = $this->fixture->CheckoutTokenRequest();
         $this->mockHandler->append(new Response(
             200, 
             [], 
-            json_encode($this->fixture->interbankResponse()
+            json_encode($this->fixture->CheckoutTokenResponse()
         )));
 
-        $result = json_decode($this->apiClient->InterbankTransferReq($bvnData));
-        $this->assertObjectHasAttribute('message', $result);
-        $this->assertObjectHasAttribute('data', $result);
-        $this->assertEquals('OK', $result->message);
-        $this->assertEquals('00', $result->data->data->status);
+        $result = json_decode($this->apiClient->CheckoutToken('', $data['sandbox_key'], $data['payload']));
+        $this->assertObjectHasAttribute('description', $result);
+        $this->assertObjectHasAttribute('token', $result);
+        $this->assertEquals('Success', $result->description);
     }
 
 }

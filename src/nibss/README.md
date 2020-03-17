@@ -4,7 +4,7 @@
 The recommended way to install innovation-sandbox is through Composer.
 
 ```bash
-$ composer require innovation-sandbox/innovation-sandbox
+$ composer require enyata/innovation-sandbox
 ```
 
 ## RESET_TOKEN([0ptions])
