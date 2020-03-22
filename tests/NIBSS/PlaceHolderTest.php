@@ -1,24 +1,26 @@
 <?php
 
-require_once './tests/Fixtures/Nibss.php';
+require_once './tests/Mock/Nibss.php';
 
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
 use \InnovationSandbox\NIBSS\PlaceHolder;
-use \InnovationSandbox\NIBSS\Common\Hash; 
+use \InnovationSandbox\NIBSS\Common\Hash;
 
-class PlaceHolderTest extends TestCase{
+class PlaceHolderTest extends TestCase
+{
 
-    private $mockHandler, 
-            $apiClient,
-            $base_uri,
-            $faker,
-            $hash,
-            $fixture;
-    
-    public function setUp(){
+    private $mockHandler,
+        $apiClient,
+        $base_uri,
+        $faker,
+        $hash,
+        $fixture;
+
+    public function setUp()
+    {
         parent::setUp();
         $this->faker = Faker\Factory::create();
         $this->base_url = $this->faker->freeEmailDomain();
@@ -32,12 +34,14 @@ class PlaceHolderTest extends TestCase{
         $this->hash = new Hash();
     }
 
-    public function testShouldVerifyRecord(){
+    public function testShouldVerifyRecord()
+    {
         $bvnData = $this->fixture->singleRecordRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->singleRecordResponse()), 
-            $bvnData['aes_key'], 
-            $bvnData['ivkey']);
+            json_encode($this->fixture->singleRecordResponse()),
+            $bvnData['aes_key'],
+            $bvnData['ivkey']
+        );
 
         $this->mockHandler->append(new Response(200, [], $encrypted));
         $result = $this->apiClient->ValidateRecord($bvnData);
@@ -47,12 +51,14 @@ class PlaceHolderTest extends TestCase{
         $this->assertEquals('00', $result['data']['ResponseCode']);
     }
 
-    public function testShouldVerifyRecords(){
+    public function testShouldVerifyRecords()
+    {
         $bvnData = $this->fixture->multipleRecordsRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->multipleRecordsResponse()), 
-            $bvnData['aes_key'], 
-            $bvnData['ivkey']);
+            json_encode($this->fixture->multipleRecordsResponse()),
+            $bvnData['aes_key'],
+            $bvnData['ivkey']
+        );
 
         $this->mockHandler->append(new Response(200, [], $encrypted));
         $result = $this->apiClient->ValidateRecords($bvnData);
@@ -62,5 +68,4 @@ class PlaceHolderTest extends TestCase{
         $this->assertEquals('OK', $result['message']);
         $this->assertEquals('00', $result['data']['ValidationResponses'][0]['ResponseCode']);
     }
-
 }

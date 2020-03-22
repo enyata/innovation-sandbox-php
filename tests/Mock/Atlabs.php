@@ -1,38 +1,43 @@
 <?php
 require_once './vendor/autoload.php';
 
-class Atlabs {
+class Atlabs
+{
     private $faker, $organisation_code, $sandbox_key;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->faker = Faker\Factory::create();
         $this->sandbox_key = 'abcdefghijklmnop';
     }
 
-    public function SendAirtimeRequest(){
+    public function SendAirtimeRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
                 "recipients" => [
                     [
-                        "phoneNumber" => "+234".$this->faker->regexify('[0-9]{10}'),
+                        "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
                         "amount" => "1000",
-                        "currencyCode" => "NGN"     
+                        "currencyCode" => "NGN"
                     ]
                 ]
             ]
         ];
     }
 
-    public function SendAirtimeResponse(){
+    public function SendAirtimeResponse()
+    {
         return [
             "description" => "Success",
-            "token" => "CkTkn_".$this->faker->regexify('[A-Za-z0-9]{36}')
+            "token" => "CkTkn_" . $this->faker->regexify('[A-Za-z0-9]{36}')
         ];
     }
 
-    public function KeyErrorResponse(){
+    public function KeyErrorResponse()
+    {
         return [
             "error" => [
                 "message" => "Unauthorized",
@@ -44,7 +49,8 @@ class Atlabs {
         ];
     }
 
-    public function InvalidKeyErrorResponse(){
+    public function InvalidKeyErrorResponse()
+    {
         return [
             "error" => [
                 "message" => "Invalid Sandbox Key",
@@ -56,7 +62,8 @@ class Atlabs {
         ];
     }
 
-    public function AirtimePayloadErrorResponse(){
+    public function AirtimePayloadErrorResponse()
+    {
         return [
             "error" => [
                 "message" => "Bad Request",
@@ -70,7 +77,8 @@ class Atlabs {
         ];
     }
 
-    public function SMSServicePayloadErrorResponse(){
+    public function SMSServicePayloadErrorResponse()
+    {
         return [
             "error" => [
                 "message" => "Bad Request",
@@ -86,7 +94,8 @@ class Atlabs {
         ];
     }
 
-    public function InvalidSMSServiceSenderErrorResponse(){
+    public function InvalidSMSServiceSenderErrorResponse()
+    {
         return [
             "error" => [
                 "message" => "Bad Request",
@@ -102,7 +111,8 @@ class Atlabs {
         ];
     }
 
-    public function InvalidTokenErrorResponse(){
+    public function InvalidTokenErrorResponse()
+    {
         return [
             "error" => [
                 "status" => "Failed",
@@ -112,59 +122,64 @@ class Atlabs {
         ];
     }
 
-    public function CheckoutTokenRequest(){
+    public function CheckoutTokenRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
-                "phoneNumber" => "+234".$this->faker->regexify('[0-9]{10}'),  
+                "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
             ]
         ];
     }
 
-    public function CheckoutTokenResponse(){
+    public function CheckoutTokenResponse()
+    {
         return [
             "description" => "Success",
-            "token" => "CkTkn_".$this->faker->regexify('[A-Za-z0-9]{36}')
+            "token" => "CkTkn_" . $this->faker->regexify('[A-Za-z0-9]{36}')
         ];
     }
 
 
-    public function SMSServiceRequest(){
+    public function SMSServiceRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
-                "to" => "+234".$this->faker->regexify('[0-9]{10}'),
+                "to" => "+234" . $this->faker->regexify('[0-9]{10}'),
                 "from" => "FSI",
                 "message" => "Hello World"
             ]
         ];
     }
 
-    public function SMSServiceResponse(){
+    public function SMSServiceResponse()
+    {
         return [
-                "SMSMessageData" => [
-                    "Message" => "Sent to 1/1 Total Cost: NGN 2.2000",
-                    "Recipients" => [
-                        [
-                            "statusCode" => 101,
-                            "number" => "+234".$this->faker->regexify('[0-9]{10}'),
-                            "cost" => "NGN 2.2000",
-                            "status" => "Success",
-                            "messageId" => "ATXid_".$this->faker->regexify('[A-Za-z0-9]{32}')
-                        ]
+            "SMSMessageData" => [
+                "Message" => "Sent to 1/1 Total Cost: NGN 2.2000",
+                "Recipients" => [
+                    [
+                        "statusCode" => 101,
+                        "number" => "+234" . $this->faker->regexify('[0-9]{10}'),
+                        "cost" => "NGN 2.2000",
+                        "status" => "Success",
+                        "messageId" => "ATXid_" . $this->faker->regexify('[A-Za-z0-9]{32}')
                     ]
                 ]
+            ]
         ];
     }
 
-    public function PremiumSMSRequest(){
+    public function PremiumSMSRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
-                "to" => "+234".$this->faker->regexify('[0-9]{10}'),
+                "to" => "+234" . $this->faker->regexify('[0-9]{10}'),
                 "from" => "FSI",
                 "message" => "Hello World",
                 "linkId" => $this->faker->regexify('[0-9]{5}'),
@@ -173,66 +188,72 @@ class Atlabs {
         ];
     }
 
-    public function PremiumSMSResponse(){
+    public function PremiumSMSResponse()
+    {
         return [
-                "SMSMessageData" => [
-                    "Message" => "Sent to 1/1",
-                    "Recipients" => [
-                        [
-                            "statusCode" => 101,
-                            "number" => "+234".$this->faker->regexify('[0-9]{10}'),
-                            "cost" => "0",
-                            "status" => "Success",
-                            "messageId" => "ATXid_".$this->faker->regexify('[A-Za-z0-9]{32}')
-                        ]
+            "SMSMessageData" => [
+                "Message" => "Sent to 1/1",
+                "Recipients" => [
+                    [
+                        "statusCode" => 101,
+                        "number" => "+234" . $this->faker->regexify('[0-9]{10}'),
+                        "cost" => "0",
+                        "status" => "Success",
+                        "messageId" => "ATXid_" . $this->faker->regexify('[A-Za-z0-9]{32}')
                     ]
                 ]
-        ];
-    }
-
-    public function CreatePremiumRequest(){
-        return [
-            "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
-            "payload" => [
-                "phoneNumber" => "+234".$this->faker->regexify('[0-9]{10}'),
-                "keyword" => "innovation-sandbox",
-                "shortCode" => $this->faker->regexify('[0-9]{5}'),
-                "checkoutToken" => "CkTkn_".$this->faker->regexify('[A-Za-z0-9]{36}')
             ]
         ];
     }
 
-    public function CreatePremiumResponse(){
+    public function CreatePremiumRequest()
+    {
+        return [
+            "host" => "hbvhjbh",
+            "sandbox_key" => $this->sandbox_key,
+            "payload" => [
+                "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
+                "keyword" => "innovation-sandbox",
+                "shortCode" => $this->faker->regexify('[0-9]{5}'),
+                "checkoutToken" => "CkTkn_" . $this->faker->regexify('[A-Za-z0-9]{36}')
+            ]
+        ];
+    }
+
+    public function CreatePremiumResponse()
+    {
         return [
             "status" => "Success",
             "description" => "Waiting for user input"
         ];
     }
 
-    public function DeletePremiumRequest(){
+    public function DeletePremiumRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
-                "phoneNumber" => "+234".$this->faker->regexify('[0-9]{10}'),
+                "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
                 "keyword" => "innovation-sandbox",
                 "shortCode" => $this->faker->regexify('[0-9]{5}'),
             ]
         ];
     }
 
-    public function DeletePremiumResponse(){
+    public function DeletePremiumResponse()
+    {
         return [
             "status" => "Success",
             "description" => "Succeeded"
         ];
     }
 
-    public function FetchPremiumRequest(){
+    public function FetchPremiumRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
                 "keyword" => "innovation-sandbox",
                 "shortCode" => $this->faker->regexify('[0-9]{5}'),
@@ -241,23 +262,26 @@ class Atlabs {
         ];
     }
 
-    public function FetchPremiumResponse(){
+    public function FetchPremiumResponse()
+    {
         return [
             "responses" => [],
         ];
     }
 
-    public function FetchMessagesRequest(){
+    public function FetchMessagesRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
                 "lastReceivedId" => "0"
             ]
         ];
     }
 
-    public function FetchMessagesResponse(){
+    public function FetchMessagesResponse()
+    {
         return [
             "SMSMessageData" => [
                 "Messages" => []
@@ -265,35 +289,39 @@ class Atlabs {
         ];
     }
 
-    public function InitiateVoiceCallRequest(){
+    public function InitiateVoiceCallRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
-                "callTo" => "+234".$this->faker->regexify('[0-9]{10}'),
+                "callTo" => "+234" . $this->faker->regexify('[0-9]{10}'),
                 "callFrom" => "FSI",
             ]
         ];
     }
 
-    public function InitiateVoiceCallResponse(){
+    public function InitiateVoiceCallResponse()
+    {
         return [
             "entries" => [],
-            "errorMessage" => "Invalid callerId: +234".$this->faker->regexify('[0-9]{10}')
+            "errorMessage" => "Invalid callerId: +234" . $this->faker->regexify('[0-9]{10}')
         ];
     }
 
-    public function QueueStatusRequest(){
+    public function QueueStatusRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
-                "phoneNumbers" => "+234".$this->faker->regexify('[0-9]{10}'),
+                "phoneNumbers" => "+234" . $this->faker->regexify('[0-9]{10}'),
             ]
         ];
     }
 
-    public function QueueStatusResponse(){
+    public function QueueStatusResponse()
+    {
         return [
             "status" => "Success",
             "errorMessage" => "None",
@@ -301,18 +329,20 @@ class Atlabs {
         ];
     }
 
-    public function MediaUploadRequest(){
+    public function MediaUploadRequest()
+    {
         return [
             "host" => "hbvhjbh",
-            "sandbox_key"=> $this->sandbox_key,
+            "sandbox_key" => $this->sandbox_key,
             "payload" => [
-                "phoneNumbers" => "+234".$this->faker->regexify('[0-9]{10}'),
+                "phoneNumbers" => "+234" . $this->faker->regexify('[0-9]{10}'),
                 "url" => "someurl"
             ]
         ];
     }
 
-    public function MediaUploadResponse(){
+    public function MediaUploadResponse()
+    {
         return "The request has been fulfilled and resulted in a new resource being created.";
     }
 }

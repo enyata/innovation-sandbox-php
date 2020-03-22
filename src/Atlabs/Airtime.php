@@ -1,20 +1,23 @@
 <?php
+
 namespace InnovationSandbox\Atlabs;
 
 use GuzzleHttp\Client;
 use InnovationSandbox\Atlabs\Common\ModuleRequest;
 
-class Airtime {
+class Airtime
+{
     private $httpRequest, $client;
 
-    public function __construct(Client $client=null)
+    public function __construct(Client $client = null)
     {
         $this->client = $client ? $client : new Client();
         $this->httpRequest = new ModuleRequest($this->client);
     }
 
-    public function SendAirtime($host = '', $key='', $payload='') {
-        try{
+    public function SendAirtime($host = '', $key = '', $payload = '')
+    {
+        try {
             $data = [
                 "path" => '/atlabs/airtime/send',
                 "host" => $host,
@@ -24,7 +27,7 @@ class Airtime {
             ];
 
             return $this->httpRequest->trigger($data);
-        } catch(\Exception $error) {
+        } catch (\Exception $error) {
             return $error->getMessage();
         }
     }

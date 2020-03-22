@@ -1,14 +1,17 @@
 <?php
 require_once './vendor/autoload.php';
 
-class Sterling {
+class Sterling
+{
     private $faker;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->faker = Faker\Factory::create();
     }
 
-    public function nameEnquiryRequest() {
+    public function nameEnquiryRequest()
+    {
         return [
             'sandbox_key' => 'abcdefghijklmnop',
             'subscription_key' => 't',
@@ -24,11 +27,12 @@ class Sterling {
         ];
     }
 
-    public function nameEnquiryReponse() {
+    public function nameEnquiryReponse()
+    {
         return [
             'message' => 'OK',
             'data' =>
-            [ 
+            [
                 'message' => 'success',
                 'response' => 'success',
                 'data' =>
@@ -38,13 +42,14 @@ class Sterling {
                     'AccountNumber' => $this->faker->regexify('[0-9]{10}'),
                     'status' => '97',
                     'BVN' => $this->faker->regexify('[0-9]{10}'),
-                    'ResponseText' => null 
-                ] 
-            ] 
+                    'ResponseText' => null
+                ]
+            ]
         ];
     }
 
-    public function interbankRequest() {
+    public function interbankRequest()
+    {
         return [
             'sandbox_key' => 'abcdefghijklmnop',
             'subscription_key' => 't',
@@ -68,7 +73,8 @@ class Sterling {
         ];
     }
 
-    public function interbankResponse() {
+    public function interbankResponse()
+    {
         return [
             'message' => 'OK',
             'data' =>
@@ -80,9 +86,8 @@ class Sterling {
                 [
                     'ResponseText' => 'Your transaction has been submitted for processing.',
                     'status' => '00'
-                    ] 
-            ] 
+                ]
+            ]
         ];
     }
-
 }

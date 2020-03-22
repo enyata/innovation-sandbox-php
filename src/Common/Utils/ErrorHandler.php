@@ -2,16 +2,17 @@
 
 namespace InnovationSandbox\Common\Utils;
 
-class ErrorHandler {
-    public static function apiError($e) {
+class ErrorHandler
+{
+    public static function apiError($e)
+    {
         $errorResponse = $e->getResponse();
-        if($errorResponse){     
+        if ($errorResponse) {
             $message = $e->getResponse()->getBody();
             return [
                 'error' => $message,
                 'statusCode' => $e->getCode()
             ];
-                
         } else {
             return [
                 'message' => 'Something went wrong, Please raise an issue on Github using the stack trace',
@@ -20,7 +21,8 @@ class ErrorHandler {
         }
     }
 
-    public static function moduleError($e){
+    public static function moduleError($e)
+    {
         return [
             'message' => 'Something went wrong, Please raise an issue on Github using the stack trace',
             'error' => $e->getMessage()

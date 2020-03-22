@@ -1,6 +1,6 @@
 <?php
 
-require_once './tests/Fixtures/Atlabs.php';
+require_once './tests/Mock/Atlabs.php';
 
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
@@ -8,15 +8,17 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
 use \InnovationSandbox\Atlabs\Airtime;
 
-class AirtimeTest extends TestCase{
+class AirtimeTest extends TestCase
+{
 
-    private $mockHandler, 
-            $apiClient,
-            $base_uri,
-            $faker,
-            $fixture;
-    
-    public function setUp(){
+    private $mockHandler,
+        $apiClient,
+        $base_uri,
+        $faker,
+        $fixture;
+
+    public function setUp()
+    {
         parent::setUp();
         $this->faker = Faker\Factory::create();
         $this->base_url = $this->faker->freeEmailDomain();
@@ -29,26 +31,32 @@ class AirtimeTest extends TestCase{
         $this->fixture = new Atlabs();
     }
 
-    public function testShouldSendAirtime(){
+    public function testShouldSendAirtime()
+    {
         $data = $this->fixture->SendAirtimeRequest();
         $this->mockHandler->append(new Response(
-            200, 
-            [], 
-            json_encode($this->fixture->SendAirtimeResponse()
-        )));
-        
+            200,
+            [],
+            json_encode(
+                $this->fixture->SendAirtimeResponse()
+            )
+        ));
+
         $result = json_decode($this->apiClient->SendAirtime('', $data['sandbox_key'], $data['payload']));
         $this->assertObjectHasAttribute('description', $result);
         $this->assertObjectHasAttribute('token', $result);
         $this->assertEquals('Success', $result->description);
     }
 
-    public function testShouldReturnErrorIfNoKey(){
+    public function testShouldReturnErrorIfNoKey()
+    {
         $this->mockHandler->append(new Response(
-            200, 
-            [], 
-            json_encode($this->fixture->KeyErrorResponse()
-        )));
+            200,
+            [],
+            json_encode(
+                $this->fixture->KeyErrorResponse()
+            )
+        ));
 
         $result = json_decode($this->apiClient->SendAirtime('', '', ''));
         $this->assertObjectHasAttribute('error', $result);
@@ -56,12 +64,15 @@ class AirtimeTest extends TestCase{
         $this->assertEquals(401, $result->statusCode);
     }
 
-    public function testShouldReturnErrorIfInvalidKey(){
+    public function testShouldReturnErrorIfInvalidKey()
+    {
         $this->mockHandler->append(new Response(
-            200, 
-            [], 
-            json_encode($this->fixture->InvalidKeyErrorResponse()
-        )));
+            200,
+            [],
+            json_encode(
+                $this->fixture->InvalidKeyErrorResponse()
+            )
+        ));
 
         $result = json_decode($this->apiClient->SendAirtime('', 'dgfdhfhgfgh', ''));
         $this->assertObjectHasAttribute('error', $result);
@@ -69,18 +80,20 @@ class AirtimeTest extends TestCase{
         $this->assertEquals(403, $result->statusCode);
     }
 
-    public function testShouldReturnErrorIfEmptyOrInvalidPayload(){
+    public function testShouldReturnErrorIfEmptyOrInvalidPayload()
+    {
         $data = $this->fixture->SendAirtimeRequest();
         $this->mockHandler->append(new Response(
-            200, 
-            [], 
-            json_encode($this->fixture->AirtimePayloadErrorResponse()
-        )));
+            200,
+            [],
+            json_encode(
+                $this->fixture->AirtimePayloadErrorResponse()
+            )
+        ));
 
         $result = json_decode($this->apiClient->SendAirtime('', $data['sandbox_key']));
         $this->assertObjectHasAttribute('error', $result);
         $this->assertObjectHasAttribute('statusCode', $result);
         $this->assertEquals(400, $result->statusCode);
     }
-
 }

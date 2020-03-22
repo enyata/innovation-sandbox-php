@@ -1,6 +1,6 @@
 <?php
 
-require_once './tests/Fixtures/Atlabs.php';
+require_once './tests/Mock/Atlabs.php';
 
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
@@ -8,15 +8,17 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
 use \InnovationSandbox\Atlabs\Token;
 
-class TokenTest extends TestCase{
+class TokenTest extends TestCase
+{
 
-    private $mockHandler, 
-            $apiClient,
-            $base_uri,
-            $faker,
-            $fixture;
-    
-    public function setUp(){
+    private $mockHandler,
+        $apiClient,
+        $base_uri,
+        $faker,
+        $fixture;
+
+    public function setUp()
+    {
         parent::setUp();
         $this->faker = Faker\Factory::create();
         $this->base_url = $this->faker->freeEmailDomain();
@@ -29,18 +31,20 @@ class TokenTest extends TestCase{
         $this->fixture = new Atlabs();
     }
 
-    public function testShouldSendAirtime(){
+    public function testShouldSendAirtime()
+    {
         $data = $this->fixture->CheckoutTokenRequest();
         $this->mockHandler->append(new Response(
-            200, 
-            [], 
-            json_encode($this->fixture->CheckoutTokenResponse()
-        )));
+            200,
+            [],
+            json_encode(
+                $this->fixture->CheckoutTokenResponse()
+            )
+        ));
 
         $result = json_decode($this->apiClient->CheckoutToken('', $data['sandbox_key'], $data['payload']));
         $this->assertObjectHasAttribute('description', $result);
         $this->assertObjectHasAttribute('token', $result);
         $this->assertEquals('Success', $result->description);
     }
-
 }

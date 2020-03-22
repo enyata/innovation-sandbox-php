@@ -15,7 +15,7 @@ script:
 jobs:
   include:
     - stage: packagist
-      php: '7.4'
+      php: "7.4"
       script: echo 'deploy ready?'
       deploy:
         provider: script
