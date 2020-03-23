@@ -24,7 +24,7 @@ class ModuleRequest
     {
         try {
             $headers = [
-                "Sandbox-Key" => $credentials["sandbox_key"],
+                'Sandbox-Key' => $credentials['sandbox_key'],
                 'Ocp-Apim-Subscription-Key' => $credentials['subscription_key'],
                 'Ocp-Apim-Trace' => 'true',
                 'Appid' => $credentials['Appid'],
@@ -33,14 +33,14 @@ class ModuleRequest
             ];
 
             $requestData = [
-                "headers" => $headers,
-                "body" => json_encode($payload),
+                'headers' => $headers,
+                'body' => json_encode($payload),
                 'query' => $params
             ];
 
             $this->response = $this->http->request([
                 'host' => $host,
-                'path' => $credentials["path"],
+                'path' => $credentials['path'],
                 'method' => $method,
                 'requestData' => $requestData
             ]);

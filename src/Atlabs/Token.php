@@ -19,11 +19,11 @@ class Token
     {
         try {
             $data = [
-                "path" => '/atlabs/token/checkout',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/token/checkout',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);

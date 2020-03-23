@@ -18,8 +18,8 @@ class FingerPrint
     public function VerifyFingerPrint($data)
     {
         try {
-            $data["path"] = '/nibss/fp/VerifyFingerPrint';
-            $data["payload"] = $data["fingerPrintData"];
+            $data['path'] = '/nibss/fp/VerifyFingerPrint';
+            $data['payload'] = $data['fingerPrintData'];
             $data['method'] = 'POST';
 
             return $this->httpRequest->trigger($data);

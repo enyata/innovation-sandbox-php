@@ -19,11 +19,11 @@ class Airtime
     {
         try {
             $data = [
-                "path" => '/atlabs/airtime/send',
-                "host" => $host,
-                "method" => 'POST',
-                "sandbox_key" => $key,
-                "payload" => $payload
+                'path' => '/atlabs/airtime/send',
+                'host' => $host,
+                'method' => 'POST',
+                'sandbox_key' => $key,
+                'payload' => $payload
             ];
 
             return $this->httpRequest->trigger($data);
