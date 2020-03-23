@@ -1,30 +1,32 @@
 {
-    "name": "enyata/innovation-sandbox",
-    "description": "PHP package for Innovation Sandbox",
-    "minimum-stability": "stable",
-    "type": "library",
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/enyata/innovation-sandbox-php"
-        }
-    ],
-    "license": "MIT",
-    "require": {
-        "php": ">=7.1",
-        "guzzlehttp/guzzle": "^6.3",
-        "travis/composer-installers": "^1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "InnovationSandbox\\": "src/",
-            "Test\\": "tests"
-        },
-        "classmap": ["src/"]
-    },
-    "require-dev": {
-        "fzaninotto/faker": "^1.9",
-        "overtrue/phplint": "dev-master",
-        "phpunit/phpunit": "^7"
+  "name": "enyata/innovation-sandbox",
+  "description": "PHP package for Innovation Sandbox",
+  "minimum-stability": "stable",
+  "type": "library",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/enyata/innovation-sandbox-php"
     }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1",
+    "guzzlehttp/guzzle": "^6.3",
+    "travis/composer-installers": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "InnovationSandbox\\": "src/",
+      "Test\\": "tests"
+    },
+    "classmap": [
+      "src/"
+    ]
+  },
+  "require-dev": {
+    "fzaninotto/faker": "^1.9",
+    "overtrue/phplint": "dev-master",
+    "phpunit/phpunit": "^7"
+  }
 }

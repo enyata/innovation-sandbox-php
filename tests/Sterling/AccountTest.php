@@ -1,22 +1,23 @@
 <?php
-
-require_once './tests/Fixtures/Sterling.php';
+require_once './tests/Mock/Sterling.php';
 
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use \InnovationSandbox\Sterling\Transfer;
+use \InnovationSandbox\Sterling\Account;
 
-class TransferTest extends TestCase{
+class AccountTest extends TestCase
+{
 
-    private $mockHandler, 
-            $apiClient,
-            $base_uri,
-            $faker,
-            $fixture;
-    
-    public function setUp(){
+    private $mockHandler,
+        $apiClient,
+        $base_uri,
+        $faker,
+        $fixture;
+
+    public function setUp()
+    {
         parent::setUp();
         $this->faker = Faker\Factory::create();
         $this->base_url = $this->faker->freeEmailDomain();
@@ -25,23 +26,25 @@ class TransferTest extends TestCase{
             'handler' => $this->mockHandler,
             'base_uri' => $this->base_uri
         ]);
-        $this->apiClient = new Transfer($httpClient);
+        $this->apiClient = new Account($httpClient);
         $this->fixture = new Sterling();
     }
 
-    public function testShouldVerifyName(){
-        $bvnData = $this->fixture->nameEnquiryRequest();
+    public function testShouldVerifyTransfer()
+    {
+        $bvnData = $this->fixture->interbankRequest();
         $this->mockHandler->append(new Response(
-            200, 
-            [], 
-            json_encode($this->fixture->nameEnquiryReponse()
-        )));
+            200,
+            [],
+            json_encode(
+                $this->fixture->interbankResponse()
+            )
+        ));
 
-        $result = json_decode($this->apiClient->InterbankNameEnquiry($bvnData));
+        $result = json_decode($this->apiClient->InterbankTransferReq($bvnData));
         $this->assertObjectHasAttribute('message', $result);
         $this->assertObjectHasAttribute('data', $result);
         $this->assertEquals('OK', $result->message);
-        $this->assertEquals('97', $result->data->data->status);
+        $this->assertEquals('00', $result->data->data->status);
     }
-
 }

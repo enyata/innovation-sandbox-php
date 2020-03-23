@@ -4,7 +4,7 @@
 The recommended way to install innovation-sandbox is through Composer.
 
 ```bash
-$ composer require innovation-sandbox/innovation-sandbox
+$ composer require enyata/innovation-sandbox
 ```
 
 ## RESET_TOKEN([0ptions])
@@ -37,7 +37,7 @@ $instance1->Reset([sandbox_key =>'Your sandbox_key', organisation_code => 'Your 
 Below is an example of a reset result:
 ```php
 [
-  password: "password",
+  password: 'password',
   ivkey: 'Your ivykey',
   aes_key: 'Your aes_key'
 ]
@@ -170,15 +170,15 @@ Credentials are same as VerifySingleBVN. The 'bvn' key is replaced with 'fingerP
 
 ```php
 fingerPrintData => [
-    "BVN" => "BVN",
-    "DeviceId" => "Your Device Number",
-    "ReferenceNumber" => "Your device reference number",
-    "FingerImage" => [
-        "type" => "image type",
-        "position" => "image position",
-        "nist_impression_type" => "impression type",
-        "value" => "impression value",
-    ]"
+    'BVN' => 'BVN',
+    'DeviceId' => 'Your Device Number',
+    'ReferenceNumber' => 'Your device reference number',
+    'FingerImage' => [
+        'type' => 'image type',
+        'position' => 'image position',
+        'nist_impression_type' => 'impression type',
+        'value' => 'impression value',
+    ]'
 ],
 ```
 

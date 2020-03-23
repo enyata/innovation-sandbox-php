@@ -1,6 +1,6 @@
 <?php
 
-namespace InnovationSandbox\Sterling\Common;
+namespace InnovationSandbox\Atlabs\Common;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
@@ -9,9 +9,7 @@ use InnovationSandbox\Common\HttpRequest;
 
 class ModuleRequest
 {
-    private $client,
-        $response,
-        $http;
+    private $client, $response, $http;
 
     public function __construct(Client $client = null)
     {
@@ -19,29 +17,23 @@ class ModuleRequest
         $this->http = new HttpRequest($this->client);
     }
 
-
-    public function trigger($host = '', $method = 'POST', $payload = '', $params = '', $credentials)
+    public function trigger($data)
     {
         try {
             $headers = [
-                'Sandbox-Key' => $credentials['sandbox_key'],
-                'Ocp-Apim-Subscription-Key' => $credentials['subscription_key'],
-                'Ocp-Apim-Trace' => 'true',
-                'Appid' => $credentials['Appid'],
+                'Sandbox-Key' => $data['sandbox_key'],
                 'Content-Type' => 'application/json',
-                'ipval' => $credentials['ipval']
             ];
 
             $requestData = [
                 'headers' => $headers,
-                'body' => json_encode($payload),
-                'query' => $params
+                'body' => json_encode($data['payload']),
             ];
 
             $this->response = $this->http->request([
-                'host' => $host,
-                'path' => $credentials['path'],
-                'method' => $method,
+                'host' => $data['host'],
+                'path' => $data['path'],
+                'method' => $data['method'],
                 'requestData' => $requestData
             ]);
 
