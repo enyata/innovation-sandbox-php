@@ -21,18 +21,18 @@ class ModuleRequest
     {
         try {
             $headers = [
-                "Sandbox-Key" => $data["sandbox_key"],
+                'Sandbox-Key' => $data['sandbox_key'],
                 'Content-Type' => 'application/json',
             ];
 
             $requestData = [
-                "headers" => $headers,
-                "body" => json_encode($data['payload']),
+                'headers' => $headers,
+                'body' => json_encode($data['payload']),
             ];
 
             $this->response = $this->http->request([
                 'host' => $data['host'],
-                'path' => $data["path"],
+                'path' => $data['path'],
                 'method' => $data['method'],
                 'requestData' => $requestData
             ]);

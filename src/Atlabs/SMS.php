@@ -19,11 +19,11 @@ class SMS
     {
         try {
             $data = [
-                "path" => '/atlabs/messaging',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/messaging',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
@@ -36,11 +36,11 @@ class SMS
     {
         try {
             $data = [
-                "path" => '/atlabs/messaging/premium',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/messaging/premium',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
@@ -53,11 +53,11 @@ class SMS
     {
         try {
             $data = [
-                "path" => '/atlabs/messaging/subscription',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/messaging/subscription',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
@@ -70,11 +70,11 @@ class SMS
     {
         try {
             $data = [
-                "path" => '/atlabs/messaging/subscription/delete',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/messaging/subscription/delete',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
@@ -87,11 +87,11 @@ class SMS
     {
         try {
             $data = [
-                "path" => '/atlabs/messaging/subscription/fetch',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/messaging/subscription/fetch',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
@@ -104,11 +104,11 @@ class SMS
     {
         try {
             $data = [
-                "path" => '/atlabs/messaging/fetch',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/messaging/fetch',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);

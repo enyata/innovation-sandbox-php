@@ -14,14 +14,14 @@ class Atlabs
     public function SendAirtimeRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "recipients" => [
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'recipients' => [
                     [
-                        "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                        "amount" => "1000",
-                        "currencyCode" => "NGN"
+                        'phoneNumber' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                        'amount' => '1000',
+                        'currencyCode' => 'NGN'
                     ]
                 ]
             ]
@@ -31,104 +31,104 @@ class Atlabs
     public function SendAirtimeResponse()
     {
         return [
-            "description" => "Success",
-            "token" => "CkTkn_" . $this->faker->regexify('[A-Za-z0-9]{36}')
+            'description' => 'Success',
+            'token' => 'CkTkn_' . $this->faker->regexify('[A-Za-z0-9]{36}')
         ];
     }
 
     public function KeyErrorResponse()
     {
         return [
-            "error" => [
-                "message" => "Unauthorized",
-                "error_code" => 401,
-                "error_message" => "UNAUTHORIZED",
-                "data" => null
+            'error' => [
+                'message' => 'Unauthorized',
+                'error_code' => 401,
+                'error_message' => 'UNAUTHORIZED',
+                'data' => null
             ],
-            "statusCode" => 401
+            'statusCode' => 401
         ];
     }
 
     public function InvalidKeyErrorResponse()
     {
         return [
-            "error" => [
-                "message" => "Invalid Sandbox Key",
-                "error_code" => 403,
-                "error_message" => "FORBIDDEN",
-                "data" => null
+            'error' => [
+                'message' => 'Invalid Sandbox Key',
+                'error_code' => 403,
+                'error_message' => 'FORBIDDEN',
+                'data' => null
             ],
-            "statusCode" => 403
+            'statusCode' => 403
         ];
     }
 
     public function AirtimePayloadErrorResponse()
     {
         return [
-            "error" => [
-                "message" => "Bad Request",
-                "error_code" => 400,
-                "error_message" => "BAD_REQUEST",
-                "data" => [
-                    "recipients" => "is required"
+            'error' => [
+                'message' => 'Bad Request',
+                'error_code' => 400,
+                'error_message' => 'BAD_REQUEST',
+                'data' => [
+                    'recipients' => 'is required'
                 ]
             ],
-            "statusCode" => 400
+            'statusCode' => 400
         ];
     }
 
     public function SMSServicePayloadErrorResponse()
     {
         return [
-            "error" => [
-                "message" => "Bad Request",
-                "error_code" => 400,
-                "error_message" => "BAD_REQUEST",
-                "data" => [
-                    "to" => "is required",
-                    "from" => "is required",
-                    "message" => "is required"
+            'error' => [
+                'message' => 'Bad Request',
+                'error_code' => 400,
+                'error_message' => 'BAD_REQUEST',
+                'data' => [
+                    'to' => 'is required',
+                    'from' => 'is required',
+                    'message' => 'is required'
                 ]
             ],
-            "statusCode" => 400
+            'statusCode' => 400
         ];
     }
 
     public function InvalidSMSServiceSenderErrorResponse()
     {
         return [
-            "error" => [
-                "message" => "Bad Request",
-                "error_code" => 400,
-                "error_message" => "BAD_REQUEST",
-                "data" => [
-                    "to" => "is required",
-                    "from" => "is required",
-                    "message" => "is required"
+            'error' => [
+                'message' => 'Bad Request',
+                'error_code' => 400,
+                'error_message' => 'BAD_REQUEST',
+                'data' => [
+                    'to' => 'is required',
+                    'from' => 'is required',
+                    'message' => 'is required'
                 ]
             ],
-            "statusCode" => 400
+            'statusCode' => 400
         ];
     }
 
     public function InvalidTokenErrorResponse()
     {
         return [
-            "error" => [
-                "status" => "Failed",
-                "description" => 'Invalid token provided',
+            'error' => [
+                'status' => 'Failed',
+                'description' => 'Invalid token provided',
             ],
-            "statusCode" => 400
+            'statusCode' => 400
         ];
     }
 
     public function CheckoutTokenRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'phoneNumber' => '+234' . $this->faker->regexify('[0-9]{10}'),
             ]
         ];
     }
@@ -136,8 +136,8 @@ class Atlabs
     public function CheckoutTokenResponse()
     {
         return [
-            "description" => "Success",
-            "token" => "CkTkn_" . $this->faker->regexify('[A-Za-z0-9]{36}')
+            'description' => 'Success',
+            'token' => 'CkTkn_' . $this->faker->regexify('[A-Za-z0-9]{36}')
         ];
     }
 
@@ -145,12 +145,12 @@ class Atlabs
     public function SMSServiceRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "to" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                "from" => "FSI",
-                "message" => "Hello World"
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'to' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                'from' => 'FSI',
+                'message' => 'Hello World'
             ]
         ];
     }
@@ -158,15 +158,15 @@ class Atlabs
     public function SMSServiceResponse()
     {
         return [
-            "SMSMessageData" => [
-                "Message" => "Sent to 1/1 Total Cost: NGN 2.2000",
-                "Recipients" => [
+            'SMSMessageData' => [
+                'Message' => 'Sent to 1/1 Total Cost: NGN 2.2000',
+                'Recipients' => [
                     [
-                        "statusCode" => 101,
-                        "number" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                        "cost" => "NGN 2.2000",
-                        "status" => "Success",
-                        "messageId" => "ATXid_" . $this->faker->regexify('[A-Za-z0-9]{32}')
+                        'statusCode' => 101,
+                        'number' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                        'cost' => 'NGN 2.2000',
+                        'status' => 'Success',
+                        'messageId' => 'ATXid_' . $this->faker->regexify('[A-Za-z0-9]{32}')
                     ]
                 ]
             ]
@@ -176,14 +176,14 @@ class Atlabs
     public function PremiumSMSRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "to" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                "from" => "FSI",
-                "message" => "Hello World",
-                "linkId" => $this->faker->regexify('[0-9]{5}'),
-                "retryDurationInHours" => "1"
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'to' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                'from' => 'FSI',
+                'message' => 'Hello World',
+                'linkId' => $this->faker->regexify('[0-9]{5}'),
+                'retryDurationInHours' => '1'
             ]
         ];
     }
@@ -191,15 +191,15 @@ class Atlabs
     public function PremiumSMSResponse()
     {
         return [
-            "SMSMessageData" => [
-                "Message" => "Sent to 1/1",
-                "Recipients" => [
+            'SMSMessageData' => [
+                'Message' => 'Sent to 1/1',
+                'Recipients' => [
                     [
-                        "statusCode" => 101,
-                        "number" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                        "cost" => "0",
-                        "status" => "Success",
-                        "messageId" => "ATXid_" . $this->faker->regexify('[A-Za-z0-9]{32}')
+                        'statusCode' => 101,
+                        'number' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                        'cost' => '0',
+                        'status' => 'Success',
+                        'messageId' => 'ATXid_' . $this->faker->regexify('[A-Za-z0-9]{32}')
                     ]
                 ]
             ]
@@ -209,13 +209,13 @@ class Atlabs
     public function CreatePremiumRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                "keyword" => "innovation-sandbox",
-                "shortCode" => $this->faker->regexify('[0-9]{5}'),
-                "checkoutToken" => "CkTkn_" . $this->faker->regexify('[A-Za-z0-9]{36}')
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'phoneNumber' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                'keyword' => 'innovation-sandbox',
+                'shortCode' => $this->faker->regexify('[0-9]{5}'),
+                'checkoutToken' => 'CkTkn_' . $this->faker->regexify('[A-Za-z0-9]{36}')
             ]
         ];
     }
@@ -223,20 +223,20 @@ class Atlabs
     public function CreatePremiumResponse()
     {
         return [
-            "status" => "Success",
-            "description" => "Waiting for user input"
+            'status' => 'Success',
+            'description' => 'Waiting for user input'
         ];
     }
 
     public function DeletePremiumRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "phoneNumber" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                "keyword" => "innovation-sandbox",
-                "shortCode" => $this->faker->regexify('[0-9]{5}'),
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'phoneNumber' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                'keyword' => 'innovation-sandbox',
+                'shortCode' => $this->faker->regexify('[0-9]{5}'),
             ]
         ];
     }
@@ -244,20 +244,20 @@ class Atlabs
     public function DeletePremiumResponse()
     {
         return [
-            "status" => "Success",
-            "description" => "Succeeded"
+            'status' => 'Success',
+            'description' => 'Succeeded'
         ];
     }
 
     public function FetchPremiumRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "keyword" => "innovation-sandbox",
-                "shortCode" => $this->faker->regexify('[0-9]{5}'),
-                "lastReceivedId" => "0"
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'keyword' => 'innovation-sandbox',
+                'shortCode' => $this->faker->regexify('[0-9]{5}'),
+                'lastReceivedId' => '0'
             ]
         ];
     }
@@ -265,17 +265,17 @@ class Atlabs
     public function FetchPremiumResponse()
     {
         return [
-            "responses" => [],
+            'responses' => [],
         ];
     }
 
     public function FetchMessagesRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "lastReceivedId" => "0"
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'lastReceivedId' => '0'
             ]
         ];
     }
@@ -283,8 +283,8 @@ class Atlabs
     public function FetchMessagesResponse()
     {
         return [
-            "SMSMessageData" => [
-                "Messages" => []
+            'SMSMessageData' => [
+                'Messages' => []
             ],
         ];
     }
@@ -292,11 +292,11 @@ class Atlabs
     public function InitiateVoiceCallRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "callTo" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                "callFrom" => "FSI",
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'callTo' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                'callFrom' => 'FSI',
             ]
         ];
     }
@@ -304,18 +304,18 @@ class Atlabs
     public function InitiateVoiceCallResponse()
     {
         return [
-            "entries" => [],
-            "errorMessage" => "Invalid callerId: +234" . $this->faker->regexify('[0-9]{10}')
+            'entries' => [],
+            'errorMessage' => 'Invalid callerId: +234' . $this->faker->regexify('[0-9]{10}')
         ];
     }
 
     public function QueueStatusRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "phoneNumbers" => "+234" . $this->faker->regexify('[0-9]{10}'),
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'phoneNumbers' => '+234' . $this->faker->regexify('[0-9]{10}'),
             ]
         ];
     }
@@ -323,26 +323,26 @@ class Atlabs
     public function QueueStatusResponse()
     {
         return [
-            "status" => "Success",
-            "errorMessage" => "None",
-            "entries" => []
+            'status' => 'Success',
+            'errorMessage' => 'None',
+            'entries' => []
         ];
     }
 
     public function MediaUploadRequest()
     {
         return [
-            "host" => "hbvhjbh",
-            "sandbox_key" => $this->sandbox_key,
-            "payload" => [
-                "phoneNumbers" => "+234" . $this->faker->regexify('[0-9]{10}'),
-                "url" => "someurl"
+            'host' => 'hbvhjbh',
+            'sandbox_key' => $this->sandbox_key,
+            'payload' => [
+                'phoneNumbers' => '+234' . $this->faker->regexify('[0-9]{10}'),
+                'url' => 'someurl'
             ]
         ];
     }
 
     public function MediaUploadResponse()
     {
-        return "The request has been fulfilled and resulted in a new resource being created.";
+        return 'The request has been fulfilled and resulted in a new resource being created.';
     }
 }

@@ -19,11 +19,11 @@ class Voice
     {
         try {
             $data = [
-                "path" => '/atlabs/voice/call',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/voice/call',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
@@ -36,11 +36,11 @@ class Voice
     {
         try {
             $data = [
-                "path" => '/atlabs/voice/queueStatus',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/voice/queueStatus',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
@@ -53,11 +53,11 @@ class Voice
     {
         try {
             $data = [
-                "path" => '/atlabs/voice/mediaUpload',
-                "method" => 'POST',
-                "host" => $host,
-                "payload" => $payload,
-                "sandbox_key" => $key
+                'path' => '/atlabs/voice/mediaUpload',
+                'method' => 'POST',
+                'host' => $host,
+                'payload' => $payload,
+                'sandbox_key' => $key
             ];
 
             return $this->httpRequest->trigger($data);
