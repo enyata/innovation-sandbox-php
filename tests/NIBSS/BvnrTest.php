@@ -30,16 +30,16 @@ class BvnrTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new Bvnr($httpClient);
-        $this->fixture = new Nibss();
+        $this->mock = new Nibss();
         $this->hash = new Hash();
     }
 
     public function testShouldReturnCredentials()
     {
-        $head = $this->fixture->ResetResponse();
+        $head = $this->mock->ResetResponse();
         $this->mockHandler->append(new Response(200, $head));
 
-        $result = $this->apiClient->Reset($this->fixture->ResetRequest());
+        $result = $this->apiClient->Reset($this->mock->ResetRequest());
 
         $this->assertArrayHasKey('ivkey', $result);
         $this->assertArrayHasKey('password', $result);
@@ -48,9 +48,9 @@ class BvnrTest extends TestCase
 
     public function testShouldVerifySingleBVN()
     {
-        $bvnData = $this->fixture->singleBVNRequest();
+        $bvnData = $this->mock->singleBVNRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->singleBVNResponse()),
+            json_encode($this->mock->singleBVNResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );
@@ -66,9 +66,9 @@ class BvnrTest extends TestCase
 
     public function testShouldVerifyMultipleBVN()
     {
-        $bvnData = $this->fixture->multipleBVNRequest();
+        $bvnData = $this->mock->multipleBVNRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->multipleBVNResponse()),
+            json_encode($this->mock->multipleBVNResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );
@@ -84,9 +84,9 @@ class BvnrTest extends TestCase
 
     public function testShouldGetSingleBVN()
     {
-        $bvnData = $this->fixture->singleBVNRequest();
+        $bvnData = $this->mock->singleBVNRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->singleBVNResponse()),
+            json_encode($this->mock->singleBVNResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );
@@ -102,9 +102,9 @@ class BvnrTest extends TestCase
 
     public function testShouldGetMultipleBVN()
     {
-        $bvnData = $this->fixture->multipleBVNRequest();
+        $bvnData = $this->mock->multipleBVNRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->multipleBVNResponse()),
+            json_encode($this->mock->multipleBVNResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );
@@ -121,9 +121,9 @@ class BvnrTest extends TestCase
 
     public function testShouldCheckIfWatchListed()
     {
-        $bvnData = $this->fixture->singleBVNRequest();
+        $bvnData = $this->mock->singleBVNRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->watchListedBVNResponse()),
+            json_encode($this->mock->watchListedBVNResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );

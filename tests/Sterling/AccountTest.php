@@ -27,17 +27,17 @@ class AccountTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new Account($httpClient);
-        $this->fixture = new Sterling();
+        $this->mock = new Sterling();
     }
 
     public function testShouldVerifyTransfer()
     {
-        $bvnData = $this->fixture->interbankRequest();
+        $bvnData = $this->mock->interbankRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->interbankResponse()
+                $this->mock->interbankResponse()
             )
         ));
 

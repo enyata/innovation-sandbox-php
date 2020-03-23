@@ -28,17 +28,17 @@ class VoiceTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new Voice($httpClient);
-        $this->fixture = new Atlabs();
+        $this->mock = new Atlabs();
     }
 
     public function testShouldInitiateVoiceCall()
     {
-        $data = $this->fixture->InitiateVoiceCallRequest();
+        $data = $this->mock->InitiateVoiceCallRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->InitiateVoiceCallResponse()
+                $this->mock->InitiateVoiceCallResponse()
             )
         ));
 
@@ -48,12 +48,12 @@ class VoiceTest extends TestCase
 
     public function testShouldFetchQueuedCalls()
     {
-        $data = $this->fixture->QueueStatusRequest();
+        $data = $this->mock->QueueStatusRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->QueueStatusResponse()
+                $this->mock->QueueStatusResponse()
             )
         ));
 
@@ -64,12 +64,12 @@ class VoiceTest extends TestCase
 
     public function testShouldUploadMediaFile()
     {
-        $data = $this->fixture->MediaUploadRequest();
+        $data = $this->mock->MediaUploadRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->MediaUploadResponse()
+                $this->mock->MediaUploadResponse()
             )
         ));
 
