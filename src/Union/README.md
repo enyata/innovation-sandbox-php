@@ -52,15 +52,15 @@ use InnovationSandbox\Union\Token;
 $instance1 = new Token();
 
 $this->instance1->GenerateToken(
-    '', 
-   'your sandbox_key', 
+    '',
+    'your sandbox_key',
     [
-       	'client_secret' => 'secret',
+        'client_secret' => 'secret',
         'client_id' => 'web01',
         'grant_type' =>	'password',
         'username' => 'ubnclient01',
         'password' => 'w$777'
-    ]);
+]);
 ```
 
 ## Account Enquiry ([options])
@@ -137,11 +137,10 @@ $instance1->Customer(
     '', 
     'your sandbox key', 
     [
-       'accountNumber' =>'+0000791200',
-       'accountType' =>'CASA',
+       'accountNumber' => '+0000791200',
+       'accountType' => 'CASA',
     ],
-    'access_token'
-    );
+    'access_token');
 ```
 
 ## Customer and Account Enquiry ([options])

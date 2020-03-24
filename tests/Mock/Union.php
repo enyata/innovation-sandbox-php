@@ -41,11 +41,11 @@ class Union
             'host' => 'hbvhjbh',
             'sandbox_key' => $this->sandbox_key,
             'payload' => [
-                'client_secret' => 'secret',
-                'client_id ' => 'web01',
-                'grant_type' => 'password',
-                'username' => 'ubnclient01',
-                'password' => 'w$777'
+                'client_secret' => $this->faker->regexify('[A-Za-z0-9]{5}'),
+                'client_id ' => $this->faker->regexify('[A-Za-z0-9]{5}'),
+                'grant_type' => $this->faker->regexify('[A-Za-z0-9]{10}'),
+                'username' => $this->faker->regexify('[A-Za-z0-9]{10}'),
+                'password' => $this->faker->regexify('[A-Za-z0-9]{10}')
             ]
         ];
     }
@@ -69,7 +69,7 @@ class Union
             'host' => 'hbvhjbh',
             'sandbox_key' => $this->sandbox_key,
             'payload' => [
-                'accountNumber' => '0000791200',
+                'accountNumber' => $this->faker->regexify('[0-9]{10}'),
                 'accountType' => 'CASA'
             ],
             'token' => $this->faker->uuid()
@@ -83,17 +83,17 @@ class Union
             'data' => [
                 'code' => '00',
                 'message' => 'Account Enquiry Successful',
-                'accountNumber' => '0000791200',
-                'accountName' => 'AWE ODUNAYO',
-                'accountBranchCode' => '682',
-                'customerNumber' =>    '004607380',
-                'accountClass' => 'CA_044',
+                'accountNumber' => $this->faker->regexify('[0-9]{10}'),
+                'accountName' => $this->faker->firstName(),
+                'accountBranchCode' => $this->faker->regexify('[0-9]{3}'),
+                'customerNumber' =>    $this->faker->regexify('[0-9]{10}'),
+                'accountClass' => $this->faker->regexify('[A-Za-z0-9]{5}'),
                 'accountCurrency' => 'NGN',
                 'accountType' => 'Current',
-                'availableBalance' => '5861',
-                'customerAddress' => '29 ALIU STREET OFF IJOKA ROAD AKURE LAGOS',
-                'customerEmail' => 'myawesoft@yahoo.com',
-                'customerPhoneNumber' => '08032227456'
+                'availableBalance' => $this->faker->regexify('[0-9]{10}'),
+                'customerAddress' => $this->faker->address(),
+                'customerEmail' => $this->faker->email(),
+                'customerPhoneNumber' => $this->faker->regexify('[0-9]{10}')
             ]
         ];
     }
@@ -104,7 +104,7 @@ class Union
             'host' => 'hbvhjbh',
             'sandbox_key' => $this->sandbox_key,
             'payload' => [
-                'accountNumber' => '0000791200',
+                'accountNumber' => $this->faker->regexify('[0-9]{10}'),
                 'accountType' => 'CASA'
             ],
             'token' => $this->faker->uuid()
@@ -120,25 +120,25 @@ class Union
                 'message' => 'Customer Enquiry Successful',
                 'country' => 'NG',
                 'countryOfBirth' =>    null,
-                'dob' => '1981-12-21',
+                'dob' => $this->faker->regexify('[0-9]{10}'),
                 'nationality' => 'NG',
-                'lastName' => 'AWE',
-                'firstName' => 'ODUNAYO',
+                'lastName' => $this->faker->lastName(),
+                'firstName' => $this->faker->firstName(),
                 'otherNames' => null,
                 'customerType' => 'I',
-                'emai' => 'myawesoft@yahoo.com',
-                'phoneNumber' => '08032227456',
+                'emai' => $this->faker->email(),
+                'phoneNumber' => $this->faker->phoneNumber(),
                 'idType' => 'OTHERS',
-                'idNumber' => '4626183',
+                'idNumber' => $this->faker->regexify('[A-Za-z0-9]{10}'),
                 'countryOfIssue' =>    null,
-                'effectiveDate' => '2009-06-11',
-                'expiryDate' => '2032-06-10',
-                'addressLine1' => '29 ALIU STREET',
-                'addressLine2' => 'OFF IJOKA ROAD',
-                'city' => 'AKURE',
-                'state' => 'LAGOS',
+                'effectiveDate' => $this->faker->date(),
+                'expiryDate' => $this->faker->date(),
+                'addressLine1' => $this->faker->address(),
+                'addressLine2' => $this->faker->address(),
+                'city' => $this->faker->city(),
+                'state' => $this->faker->state(),
                 'postalCode' => null,
-                'bvn' => '12345678',
+                'bvn' => $this->faker->regexify('[0-9]{10}'),
             ]
         ];
     }
@@ -149,7 +149,7 @@ class Union
             'host' => 'hbvhjbh',
             'sandbox_key' => $this->sandbox_key,
             'payload' => [
-                'accountNumber' => '0000791200',
+                'accountNumber' => $this->faker->regexify('[0-9]{10}'),
                 'accountType' => 'CASA'
             ],
             'token' => $this->faker->uuid()
@@ -167,42 +167,41 @@ class Union
                     'code' => '00',
                     'message' => 'Account Enquiry Successful',
                     'reference' => null,
-                    'accountNumber' => '0000791200',
-                    'accountName' => 'AWE ODUNAYO',
-                    'accountBranchCode' => '682',
-                    'customerNumber' => '004607380',
-                    'accountClass' => 'CA_044',
+                    'accountNumber' => $this->faker->regexify('[0-9]{10}'),
+                    'accountName' => $this->faker->name(),
+                    'accountBranchCode' => $this->faker->regexify('[A-Za-z0-9]{10}'),
+                    'customerNumber' => $this->faker->regexify('[0-9]{10}'),
+                    'accountClass' => $this->faker->regexify('[A-Za-z0-9]{7}'),
                     'accountCurrency' => 'NGN',
                     'accountType' => 'current',
-                    'availableBalance' => '5861',
-                    'customerAddress' => '29 ALIU STREET OFF IJOKA ROAD AKURE LAGOS',
-                    'customerEmail' => 'myawesoft@yahoo.com',
-                    'customerPhoneNumber' => '08032227456',
+                    'availableBalance' => $this->faker->regexify('[0-9]{10}'),
+                    'customerAddress' => $this->faker->address(),
+                    'customerEmail' => $this->faker->email(),
+                    'customerPhoneNumber' => $this->faker->regexify('[0-9]{10}'),
                 ],
                 'customer' => [
                     'code' => '00',
-                    'message' => 'Customer Enquiry Successful',
-                    'country' => 'NG',
-                    'countryOfBirth' => null,
-                    'dob' => '1981-12-21',
-                    'nationality' => 'NG',
-                    'lastName' => 'AWE',
-                    'firstName' => 'ODUNAYO',
-                    'otherNames' => null,
-                    'customerTyoe' => 'I',
-                    'email' =>  'myawesoft@yahoo.com',
-                    'phoneNumer' => '29 ALIU STREET OFF IJOKA ROAD AKURE LAGOS',
-                    'customerEmail' => '08032227456',
-                    'idType' => 'OTHERS',
-                    'idNumber' => '4626183',
-                    'countryOfIssue' => null,
-                    'effectiveDate' => '2009-06-11',
-                    'expiryDate' => '2032-06-10',
-                    'addressLine1' => '29 ALIU STREET',
-                    'addressLine2' => 'OFF IJOKA ROAD',
-                    'city' => 'AKURE',
-                    'state' => 'LAGOS',
-                    'postalCode' => null,
+                'message' => 'Customer Enquiry Successful',
+                'country' => 'NG',
+                'countryOfBirth' =>    null,
+                'dob' => $this->faker->regexify('[0-9]{10}'),
+                'nationality' => 'NG',
+                'lastName' => $this->faker->lastName(),
+                'firstName' => $this->faker->firstName(),
+                'otherNames' => null,
+                'customerType' => 'I',
+                'emai' => $this->faker->email(),
+                'phoneNumber' => $this->faker->phoneNumber(),
+                'idType' => 'OTHERS',
+                'idNumber' => $this->faker->regexify('[A-Za-z0-9]{10}'),
+                'countryOfIssue' =>    null,
+                'effectiveDate' => $this->faker->date(),
+                'expiryDate' => $this->faker->date(),
+                'addressLine1' => $this->faker->address(),
+                'addressLine2' => $this->faker->address(),
+                'city' => $this->faker->city(),
+                'state' => $this->faker->state(),
+                'postalCode' => null,
                 ]
             ]
         ];
@@ -214,11 +213,11 @@ class Union
             'host' => 'hbvhjbh',
             'sandbox_key' => $this->sandbox_key,
             'payload' => [
-                'username' => 'user1',
-                'oldPassword' => 'password2',
-                'password' => 'password',
+                'username' => $this->faker->regexify('[A-Za-z0-9]{10}'),
+                'oldPassword' => $this->faker->regexify('[A-Za-z0-9]{10}'),
+                'password' => $this->faker->regexify('[A-Za-z0-9]{10}'),
                 'moduleId' => 'UNION_ONE',
-                'clientSecret' => 'ABC',
+                'clientSecret' => $this->faker->regexify('[A-Za-z0-9]{10}'),
             ],
             'token' => $this->faker->uuid()
         ];
