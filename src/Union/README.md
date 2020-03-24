@@ -60,7 +60,7 @@ $this->instance1->GenerateToken(
         'grant_type' =>	'password',
         'username' => 'ubnclient01',
         'password' => 'w$777'
-]);
+    ]);
 ```
 
 ## Account Enquiry ([options])
