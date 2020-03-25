@@ -28,17 +28,17 @@ class TransferTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new Transfer($httpClient);
-        $this->fixture = new Sterling();
+        $this->mock = new Sterling();
     }
 
     public function testShouldVerifyName()
     {
-        $bvnData = $this->fixture->nameEnquiryRequest();
+        $bvnData = $this->mock->nameEnquiryRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->nameEnquiryReponse()
+                $this->mock->nameEnquiryReponse()
             )
         ));
 

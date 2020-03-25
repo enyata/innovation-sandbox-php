@@ -28,17 +28,17 @@ class TokenTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new Token($httpClient);
-        $this->fixture = new Atlabs();
+        $this->mock = new Atlabs();
     }
 
     public function testShouldSendAirtime()
     {
-        $data = $this->fixture->CheckoutTokenRequest();
+        $data = $this->mock->CheckoutTokenRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->CheckoutTokenResponse()
+                $this->mock->CheckoutTokenResponse()
             )
         ));
 

@@ -28,17 +28,17 @@ class AirtimeTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new Airtime($httpClient);
-        $this->fixture = new Atlabs();
+        $this->mock = new Atlabs();
     }
 
     public function testShouldSendAirtime()
     {
-        $data = $this->fixture->SendAirtimeRequest();
+        $data = $this->mock->SendAirtimeRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->SendAirtimeResponse()
+                $this->mock->SendAirtimeResponse()
             )
         ));
 
@@ -54,7 +54,7 @@ class AirtimeTest extends TestCase
             200,
             [],
             json_encode(
-                $this->fixture->KeyErrorResponse()
+                $this->mock->KeyErrorResponse()
             )
         ));
 
@@ -70,7 +70,7 @@ class AirtimeTest extends TestCase
             200,
             [],
             json_encode(
-                $this->fixture->InvalidKeyErrorResponse()
+                $this->mock->InvalidKeyErrorResponse()
             )
         ));
 
@@ -82,12 +82,12 @@ class AirtimeTest extends TestCase
 
     public function testShouldReturnErrorIfEmptyOrInvalidPayload()
     {
-        $data = $this->fixture->SendAirtimeRequest();
+        $data = $this->mock->SendAirtimeRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->AirtimePayloadErrorResponse()
+                $this->mock->AirtimePayloadErrorResponse()
             )
         ));
 

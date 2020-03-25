@@ -30,15 +30,15 @@ class FingerPrintTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new FingerPrint($httpClient);
-        $this->fixture = new Nibss();
+        $this->mock = new Nibss();
         $this->hash = new Hash();
     }
 
     public function testShouldVerifyFingerPrint()
     {
-        $bvnData = $this->fixture->fingerPrintRequest();
+        $bvnData = $this->mock->fingerPrintRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->fingerPrintResponse()),
+            json_encode($this->mock->fingerPrintResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );

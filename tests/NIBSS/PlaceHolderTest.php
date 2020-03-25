@@ -30,15 +30,15 @@ class PlaceHolderTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new PlaceHolder($httpClient);
-        $this->fixture = new Nibss();
+        $this->mock = new Nibss();
         $this->hash = new Hash();
     }
 
     public function testShouldVerifyRecord()
     {
-        $bvnData = $this->fixture->singleRecordRequest();
+        $bvnData = $this->mock->singleRecordRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->singleRecordResponse()),
+            json_encode($this->mock->singleRecordResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );
@@ -53,9 +53,9 @@ class PlaceHolderTest extends TestCase
 
     public function testShouldVerifyRecords()
     {
-        $bvnData = $this->fixture->multipleRecordsRequest();
+        $bvnData = $this->mock->multipleRecordsRequest();
         $encrypted = $this->hash->encrypt(
-            json_encode($this->fixture->multipleRecordsResponse()),
+            json_encode($this->mock->multipleRecordsResponse()),
             $bvnData['aes_key'],
             $bvnData['ivkey']
         );

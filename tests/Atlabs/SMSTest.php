@@ -28,17 +28,17 @@ class SMSTest extends TestCase
             'base_uri' => $this->base_uri
         ]);
         $this->apiClient = new SMS($httpClient);
-        $this->fixture = new Atlabs();
+        $this->mock = new Atlabs();
     }
 
     public function testShouldSendSMS()
     {
-        $data = $this->fixture->SMSServiceRequest();
+        $data = $this->mock->SMSServiceRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->SMSServiceResponse()
+                $this->mock->SMSServiceResponse()
             )
         ));
         $result = json_decode($this->apiClient->SMSService('', $data['sandbox_key'], $data['payload']));
@@ -50,12 +50,12 @@ class SMSTest extends TestCase
 
     public function testShouldReturnErrorIfSMSServicePayloadError()
     {
-        $data = $this->fixture->SMSServiceRequest();
+        $data = $this->mock->SMSServiceRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->SMSServicePayloadErrorResponse()
+                $this->mock->SMSServicePayloadErrorResponse()
             )
         ));
         $result = json_decode($this->apiClient->SMSService('', $data['sandbox_key'], ''));
@@ -66,13 +66,13 @@ class SMSTest extends TestCase
 
     public function testShouldReturnErrorIfInvalidSender()
     {
-        $data = $this->fixture->SMSServiceRequest();
+        $data = $this->mock->SMSServiceRequest();
         $data['payload']['from'] = '000000';
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->InvalidSMSServiceSenderErrorResponse()
+                $this->mock->InvalidSMSServiceSenderErrorResponse()
             )
         ));
         $result = json_decode($this->apiClient->SMSService('', $data['sandbox_key'], $data['payload']));
@@ -83,12 +83,12 @@ class SMSTest extends TestCase
 
     public function testShouldSendPremiumSMS()
     {
-        $data = $this->fixture->PremiumSMSRequest();
+        $data = $this->mock->PremiumSMSRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->PremiumSMSResponse()
+                $this->mock->PremiumSMSResponse()
             )
         ));
         $result = json_decode($this->apiClient->Premium('', $data['sandbox_key'], $data['payload']));
@@ -100,12 +100,12 @@ class SMSTest extends TestCase
 
     public function testShouldCreatePremiumSubscription()
     {
-        $data = $this->fixture->CreatePremiumRequest();
+        $data = $this->mock->CreatePremiumRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->CreatePremiumResponse()
+                $this->mock->CreatePremiumResponse()
             )
         ));
         $result = json_decode($this->apiClient->CreatePremium('', $data['sandbox_key'], $data['payload']));
@@ -116,13 +116,13 @@ class SMSTest extends TestCase
 
     public function testShouldReturErrorIfInvalidToken()
     {
-        $data = $this->fixture->CreatePremiumRequest();
+        $data = $this->mock->CreatePremiumRequest();
         $data['payload']['checkoutToken'] = 'something';
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->InvalidTokenErrorResponse()
+                $this->mock->InvalidTokenErrorResponse()
             )
         ));
         $result = json_decode($this->apiClient->CreatePremium('', $data['sandbox_key'], $data['payload']));
@@ -133,12 +133,12 @@ class SMSTest extends TestCase
 
     public function testShouldDeletePremiumSubscription()
     {
-        $data = $this->fixture->DeletePremiumRequest();
+        $data = $this->mock->DeletePremiumRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->DeletePremiumResponse()
+                $this->mock->DeletePremiumResponse()
             )
         ));
         $result = json_decode($this->apiClient->DeletePremium('', $data['sandbox_key'], $data['payload']));
@@ -149,12 +149,12 @@ class SMSTest extends TestCase
 
     public function testShouldFetchPremiumSubscription()
     {
-        $data = $this->fixture->FetchPremiumRequest();
+        $data = $this->mock->FetchPremiumRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->FetchPremiumResponse()
+                $this->mock->FetchPremiumResponse()
             )
         ));
         $result = json_decode($this->apiClient->FetchPremium('', $data['sandbox_key'], $data['payload']));
@@ -163,12 +163,12 @@ class SMSTest extends TestCase
 
     public function testShouldFetchMessages()
     {
-        $data = $this->fixture->FetchMessagesRequest();
+        $data = $this->mock->FetchMessagesRequest();
         $this->mockHandler->append(new Response(
             200,
             [],
             json_encode(
-                $this->fixture->FetchMessagesResponse()
+                $this->mock->FetchMessagesResponse()
             )
         ));
         $result = json_decode($this->apiClient->FetchMessages('', $data['sandbox_key'], $data['payload']));
