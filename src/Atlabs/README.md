@@ -14,7 +14,7 @@ Below is a list of required credentials.
 
 ### sandbox_key
 
-This can be found in the innovation sandbox dashboard after signup. However`0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
+This can be found in the innovation sandbox dashboard after sign up.
 
 ### host
 
@@ -54,8 +54,8 @@ use InnovationSandbox\Atlabs\Airtime;
 $instance1 = new Airtime();
 
 $this->instance1->SendAirtime(
-    '', 
-   'your sandbox_key', 
+    '',
+   'your sandbox_key',
     [
        'recipients' => [
             [
@@ -99,15 +99,14 @@ Set to true if you would like to deliver as many messages to the API without wai
 
 Below is a sample with test data;
 
-
 ```php
 <?php
 use InnovationSandbox\Atlabs\SMS;
 $instance1 = new SMS();
 
 $instance1->SMSService(
-    '', 
-   'your sandbox key', 
+    '',
+   'your sandbox key',
     [
        'to' =>'+2349091271976',
        'from' =>'FSI',
@@ -133,7 +132,7 @@ A comma separated string of recipients’ phone numbers.
 
 ##### from
 
-Your registered short code or alphanumeric, defaults is'FSI'.
+Your registered short code or alphanumeric, defaults is 'FSI'.
 
 ##### message
 
@@ -141,7 +140,7 @@ The message to be sent.
 
 ##### keyword
 
-You premium product keyword'innovation-sandbox'.
+You premium product keyword 'innovation-sandbox'.
 
 ##### linkId
 
@@ -161,8 +160,8 @@ use InnovationSandbox\Atlabs\SMS;
 $instance1 = new SMS();
 
 $instance1->Premium(
-    '', 
-    'your sandbox key', 
+    '',
+    'your sandbox key',
     [
        'to' =>'+2349091271976',
        'from' =>'FSI',
@@ -199,7 +198,7 @@ This is a token used to validate the subscription request.
 
 ##### keyword
 
-You premium product keyword'innovation-sandbox'.
+You premium product keyword 'innovation-sandbox'.
 
 ### InnovationSandbox\Atlabs\SMS\SMSService(credentials)
 
@@ -211,8 +210,8 @@ use InnovationSandbox\Atlabs\SMS;
 $instance1 = new SMS();
 
 $instance1->CreatePremium(
-    '', 
-    'your sandbox key', 
+    '',
+    'your sandbox key',
     [
        'phoneNumber' =>'+2349091271976',
        'shortCode' =>'19171',
@@ -243,7 +242,7 @@ The phone number to be subscribed.
 
 ##### keyword
 
-You premium product keyword'innovation-sandbox'.
+You premium product keyword 'innovation-sandbox'.
 
 ### InnovationSandbox\Atlabs\SMS\DeletePremium(credentials)
 
@@ -255,8 +254,8 @@ use InnovationSandbox\Atlabs\SMS;
 $instance1 = new SMS();
 
 $instance1->DeletePremium(
-    '', 
-   'your sandbox key', 
+    '',
+   'your sandbox key',
     [
        'phoneNumber' =>'+2349091271976',
        'shortCode' =>'19171',
@@ -286,7 +285,7 @@ This is the id of the message that you last processed. Defaults to 0
 
 ##### keyword
 
-You premium product keyword'innovation-sandbox'.
+You premium product keyword 'innovation-sandbox'.
 
 ### InnovationSandbox\Atlabs\SMS\FetchPremium(credentials)
 
@@ -298,8 +297,8 @@ use InnovationSandbox\Atlabs\SMS;
 $instance1 = new SMS();
 
 $instance1->FetchPremium(
-    '', 
-    'your sandbox key', 
+    '',
+    'your sandbox key',
     [
        'lastReceivedId' =>'0',
        'shortCode' =>'19171',
@@ -410,7 +409,7 @@ Request Body
 
 ##### phoneNumber
 
-Your Africa's Talking issued virtual phone number. 
+Your Africa's Talking issued virtual phone number.
 
 ### InnovationSandbox\Atlabs\Voice\QueueStatus(credentials)
 
@@ -438,11 +437,11 @@ Request Body
 
 ##### phoneNumber
 
-Your Africa's Talking issued virtual phone number. 
+Your Africa's Talking issued virtual phone number.
 
 ##### url
 
-URL to your media file 
+URL to your media file
 
 ### InnovationSandbox\Atlabs\Voice\QueueStatus(credentials)
 
@@ -454,8 +453,8 @@ use InnovationSandbox\Atlabs\Voice;
 $instance1 = new Voice();
 
 $instance1->QueueStatus(
-    '', 
-    'your sandbox key', 
+    '',
+    'your sandbox key',
     [
        'phoneNumber' =>'+234000000000',
        'url' =>'link-to-media-file'
@@ -464,7 +463,7 @@ $instance1->QueueStatus(
 
 ## RUNNING TEST
 
-After installing dependeinces, run the command 
+After installing dependencies, run the command
 
 ```bash
 $ vendor/bin/phpunit tests

@@ -14,7 +14,7 @@ Below is a list of required credentials.
 
 ### sandbox_key
 
-This can be found in the innovation sandbox dashboard after signup. However`0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
+This can be found in the innovation sandbox dashboard after sign up.
 
 ### host
 
@@ -31,7 +31,6 @@ Application ID
 ### ipval
 
 ip value
-
 
 ## Interbank Name Enquiry([options])
 
@@ -59,13 +58,11 @@ GPS of the originating location of the transaction in longitude & latitude.
 
 ##### ToAccount
 
-This is the nuban of the transaction recipient account.
+This is the NUBAN of the transaction recipient account.
 
 ##### destinationbankcode
 
 This is the destination bank's code
-
-
 
 ### InnovationSandbox\Sterling\Transfer\InterbankNameEnquiry(credentials)
 
@@ -80,22 +77,22 @@ $instance = new Transfer();
 echo json_encode($instance->InterbankNameEnquiry([
     'host' => 'Your host url',
     'sandbox_key' => 'Your sandbox_key',
-    'subscription_key' => 'Your Subscription Key',
-    'Appid' => 'Your App ID',
-    'ipval' => 'Your IP',
+    'subscription_key' => 't',
+    'Appid' => 69,
+    'ipval' => 0,
     'params' => [
-        'Referenceid' => 'Your Transaction ID',
-		  'RequestType' => 'Transaction Type',
-		  'Translocation' => 'Transaction Location Longitude Latitude',
-		  'ToAccount' => 'Transaction Recipient Account',
-		  'destinationbankcode' => 'Destination Bank Code'
+        'Referenceid' => '01',
+		  'RequestType' => '01',
+		  'Translocation' => '01',
+		  'ToAccount' => '0037514056',
+		  'destinationbankcode' => '00001'
     ]
     ]));
 ```
 
 ## Interbank Transfer([options])
 
-You can transfer funds from one bank or a financial insitution to another.
+You can transfer funds from one bank or a financial institution to another.
 
 ### options
 
@@ -119,11 +116,11 @@ The is the session id.
 
 ##### FromAccount
 
-This is the nuban of the transaction sender account.
+This is the NUBAN of the transaction sender account.
 
 ##### ToAccount
 
-This is the nuban of the transaction recipient account.
+This is the NUBAN of the transaction recipient account.
 
 ##### Amount
 
@@ -134,9 +131,13 @@ This is the amount sent.
 This is the destination bank's code
 
 ##### NEResponse
+
 ##### BenefiName
+
 ##### PaymentReference
+
 ##### OriginatorAccountName
+
 ##### translocation
 
 ### InnovationSandbox\Sterling\Account\InterbankTransferReq(credentials)
@@ -150,7 +151,7 @@ use InnovationSandbox\Sterling\Account;
 $instance = new Account();
 
 echo json_encode($instance5->InterbankTransferReq([
-        'sandbox_key' => '0ae0db703c04119b3db7a03d7f854c13',
+        'sandbox_key' => 'Your sandbox_key',
         'subscription_key' => 't',
         'Appid' => 69,
         'ipval' => 0,
@@ -174,7 +175,8 @@ echo json_encode($instance5->InterbankTransferReq([
 
 ## RUNNING TEST
 
-After installing dependeinces, run the command 
+After installing dependencies, run the command
+
 ```bash
 $ vendor/bin/phpunit tests
 ```
