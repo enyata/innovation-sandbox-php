@@ -7,17 +7,17 @@ The recommended way to install innovation-sandbox is through Composer.
 $ composer require enyata/innovation-sandbox
 ```
 
-## RESET_TOKEN([0ptions])
+## RESET_TOKEN([Options])
 This should be done on every initialization.
 
 ### Options
-The module accepts options as an array of key-value and returns aes_key, ivkey and password .
+The module accepts options as an array of key-value and returns aes_key, ivkey and password.
 
 #### sandbox_key
-This can be found in the innovation sandbox dashboard after signup. However `0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
+This can be found in the innovation sandbox dashboard after sign up. 
 
 #### organisation_code
-This credential is gotten from NIBSS prior to acquiring this credential, 11111 should be used for testing rather documentation should say use organisation code from Dashboard.
+This credential is gotten from NIBSS prior to acquiring this credential, 11111 should be used for testing.
 
 ##### host
 This argument is optional in all cases. Defaults to `https://sandboxapi.fsi.ng` if not found.
@@ -70,10 +70,10 @@ $instance1->VerifySingleBVN([
 ```
 
 ### Verify Multiple BVN
-Verify multiple BVN
+Verifies more than one BVN
 
 #### InnovationSandbox\NIBSS\Bvnr\VerifyMultipleBVN(credentials)
-Credentials are same as VerifySingleBVN. The BVN numbers are seperated by comma. For example
+Credentials are same as VerifySingleBVN. The BVNs are separated by comma. For example
 
 ```php
 <?php
@@ -117,7 +117,7 @@ $instance1->GetSingleBVN([
 ```
 
 ### GET Multiple BVN
-Get multiple BVN
+Gets multiple BVN
 
 #### InnovationSandbox\NIBSS\Bvnr\GetMultipleBVN(credentials)
 Credentials are same as VerifyMultipleBVN.
@@ -140,7 +140,7 @@ $instance1->VerifySingleBVN({
 ```
 
 ### Is BVN Watchlisted
-Verifys if BVN has been watch listed.
+Verifies if BVN has been watch listed.
 
 #### InnovationSandbox\NIBSS\Bvnr\IsBVNWatchlisted(credentials)
 Credentials are same as VerifySingleBVN.
@@ -163,7 +163,7 @@ $instance1->IsBVNWatchlisted({
 ```
 
 ### Verify Finger Print
-Verify finger print
+Verifies finger print
 
 #### InnovationSandbox\NIBSS\FingerPrint\VerifyFingerPrint(credentials)
 Credentials are same as VerifySingleBVN. The 'bvn' key is replaced with 'fingerPrintData' key which is an array containing details about the finger print. Below are the keys required for the fingerPrintData array.
@@ -243,7 +243,7 @@ $instance1->ValidateRecords([
 ```
 
 ### Validate Multiple Records
-validates multiple records
+Validates multiple records
 
 #### InnovationSandbox\NIBSS\PlaceHolder\ValidateRecords(credentials)
 Credentials are same as VerifySingleBVN. The 'bvn' key is replaced with 'Records' key which is an array of arrays containing details about the BVN record.
@@ -283,7 +283,7 @@ $instance1->ValidateRecords({
 ```
 
 ## RUNNING TEST
-After installing dependeinces, run the command 
+After installing dependencies, run the command 
 ```bash
 $ vendor/bin/phpunit tests
 ```
