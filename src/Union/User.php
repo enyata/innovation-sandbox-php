@@ -19,7 +19,7 @@ class User
     {
         try {
             $data = [
-                "path" => '/union//secured/changeusercredentials',
+                "path" => '/union/secured/changeusercredentials',
                 'method' => 'POST',
                 'host' => $host,
                 'payload' => $payload,
