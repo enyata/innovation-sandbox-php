@@ -117,7 +117,7 @@ $instance1->GetSingleBVN([
 ```
 
 ### GET Multiple BVN
-GetS multiple BVN
+Gets multiple BVN
 
 #### InnovationSandbox\NIBSS\Bvnr\GetMultipleBVN(credentials)
 Credentials are same as VerifyMultipleBVN.

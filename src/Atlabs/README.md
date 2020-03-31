@@ -140,7 +140,7 @@ The message to be sent.
 
 ##### keyword
 
-You premium product keyword 'innovation-sandbox'.
+Your premium product keyword 'innovation-sandbox'.
 
 ##### linkId
 
@@ -198,7 +198,7 @@ This is a token used to validate the subscription request.
 
 ##### keyword
 
-You premium product keyword 'innovation-sandbox'.
+Your premium product keyword 'innovation-sandbox'.
 
 ### InnovationSandbox\Atlabs\SMS\SMSService(credentials)
 
@@ -242,7 +242,7 @@ The phone number to be subscribed.
 
 ##### keyword
 
-You premium product keyword 'innovation-sandbox'.
+Your premium product keyword 'innovation-sandbox'.
 
 ### InnovationSandbox\Atlabs\SMS\DeletePremium(credentials)
 
@@ -285,7 +285,7 @@ This is the id of the message that you last processed. Defaults to 0
 
 ##### keyword
 
-You premium product keyword 'innovation-sandbox'.
+Your premium product keyword 'innovation-sandbox'.
 
 ### InnovationSandbox\Atlabs\SMS\FetchPremium(credentials)
 
