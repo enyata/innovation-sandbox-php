@@ -37,6 +37,7 @@ class ModuleRequest
                 'Sandbox-Key' => $credentials['sandbox_key']
             ];
 
+
             if (isset($credentials['aes_key']) && isset($credentials['ivkey'])) {
                 $this->aes_key = $credentials['aes_key'];
                 $this->ivkey = $credentials['ivkey'];
@@ -68,6 +69,9 @@ class ModuleRequest
                 'requestData' => $requestData
             ]);
 
+            if (gettype($this->response) === 'array') {
+                return $this->response;
+            }
 
             $body = $this->response->getBody()->getContents();
 

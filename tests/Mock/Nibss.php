@@ -12,6 +12,41 @@ class Nibss
         $this->organisation_code = '00000';
     }
 
+    public function KeyErrorResponse()
+    {
+        return [
+            'error' => 'Unauthorized. Please check your credentials.',
+            'statusCode' => 401
+        ];
+    }
+
+    public function InvalidKeyErrorResponse()
+    {
+        return [
+            'error' => 'Expired/Invalid Sanbox Key.',
+            'statusCode' => 403
+        ];
+    }
+
+    public function WrongPayloadErrorResponse()
+    {
+        return [
+            'error' => [
+                'ResponseCode' => '05',
+                'Message' => 'Unmatched Request, Refer to documentation.'
+            ],
+            'statusCode' => 400
+        ];
+    }
+    
+    public function NoKeyRequest()
+    {
+        return [
+            'sandbox_key' => '$this->sandbox_key',
+            'organisation_code' => $this->organisation_code
+        ];
+    }
+
     public function ResetRequest()
     {
         return [

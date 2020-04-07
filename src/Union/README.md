@@ -14,7 +14,7 @@ Below is a list of required credentials.
 
 ### sandbox_key
 
-This can be found in the innovation sandbox dashboard after signup. However`0ae0db703c04119b3db7a03d7f854c13` can be used for testing purposes.
+This can be found in the innovation sandbox dashboard after sign up.
 
 ### host
 
@@ -87,20 +87,19 @@ Account type. Default CASA.
 
 Below is a sample with test data;
 
-
 ```php
 <?php
 use InnovationSandbox\Union\Enquiry;
 $instance1 = new Enquiry();
 
 $instance1->Account(
-    '', 
-   'your sandbox key', 
+    '',
+   'your sandbox key',
     [
        'accountNumber' =>'0000791200',
        'accountType' =>'CASA',
     ],
-    'your access_toke'
+    'your access_token'
     );
 ```
 
@@ -122,7 +121,7 @@ Account number to be queried.
 
 ##### accountType([optional])
 
-Account type. Default CASA 
+Account type. Default CASA
 
 ### InnovationSandbox\Union\Enquiry\Customer(credentials)
 
@@ -134,8 +133,8 @@ use InnovationSandbox\Union\Enquiry;
 $instance1 = new Enquiry();
 
 $instance1->Customer(
-    '', 
-    'your sandbox key', 
+    '',
+    'your sandbox key',
     [
        'accountNumber' => '+0000791200',
        'accountType' => 'CASA',
@@ -146,7 +145,7 @@ $instance1->Customer(
 ## Customer and Account Enquiry ([options])
 
 This operation enables client to do customer and account enquiry with a single call. The return
-message contains both customer and account information. 
+message contains both customer and account information.
 
 ### options
 
@@ -162,7 +161,7 @@ Account number to be queried
 
 ##### accountType
 
-Account type. Default CASA 
+Account type. Default CASA
 
 ### InnovationSandbox\Union\Enquiry\CustomerAndAccount(credentials)
 
@@ -174,8 +173,8 @@ use InnovationSandbox\Union\Enquiry;
 $instance1 = new Enquiry();
 
 $instance1->CustomerAccount(
-    '', 
-    'your sandbox key', 
+    '',
+    'your sandbox key',
     [
        'accountNumber' =>'0000791200',
        'accountType' =>'CASA',
@@ -186,7 +185,7 @@ $instance1->CustomerAccount(
 
 ## Change User Credentials ([options])
 
-This operation enables client to change password. 
+This operation enables client to change password.
 
 ### options
 
@@ -198,23 +197,23 @@ Request Body
 
 ##### username
 
-Reference number used to hold funds. 
+Reference number used to hold funds.
 
 ##### oldPassword
 
-Current password 
+Current password
 
 ##### Password
 
-New password 
+New password
 
 ##### ModuleId
 
-Client module ID 
+Client module ID
 
 ##### clientSecret
 
-Client secret 
+Client secret
 
 ### InnovationSandbox\Union\User\UpdateCredentials(credentials)
 
@@ -226,8 +225,8 @@ use InnovationSandbox\Union\User;
 $instance1 = new User();
 
 $instance1->UpdateCredentials(
-    '', 
-   'your sandbox key', 
+    '',
+   'your sandbox key',
     [
        'username' =>'user1',
        'oldPassword' =>'password2',
@@ -239,7 +238,7 @@ $instance1->UpdateCredentials(
 
 ## RUNNING TEST
 
-After installing dependeinces, run the command 
+After installing dependencies, run the command
 
 ```bash
 $ vendor/bin/phpunit tests
