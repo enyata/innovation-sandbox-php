@@ -12,3 +12,4 @@ $ composer require innovation-sandbox/innovation-sandbox
 [Sterling](https://github.com/enyata/innovation-sandbox-php/blob/master/src/Sterling/README.md)
 [Atlabs](https://github.com/enyata/innovation-sandbox-php/blob/master/src/Atlabs/README.md)
 [Union](https://github.com/enyata/innovation-sandbox-php/blob/master/src/Union/README.md)
+[RelainceHMO](https://github.com/enyata/innovation-sandbox-php/blob/master/src/RelianceHMO/README.md)
