@@ -113,7 +113,7 @@ class RetailTest extends TestCase
                 $this->mock->WrongPayloadResponse()
             )
         ));
-        
+
         $data['payload'] = '';
         $result = json_decode($this->apiClient->Renew($data));
         $this->assertObjectHasAttribute('error', $result);

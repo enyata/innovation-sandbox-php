@@ -76,7 +76,7 @@ class EnrolleesTest extends TestCase
                 $this->mock->WrongPayloadResponse()
             )
         ));
-        
+
         $result = json_decode($this->apiClient->Register($data));
         $this->assertObjectHasAttribute('error', $result);
         $this->assertObjectHasAttribute('statusCode', $result);

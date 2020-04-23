@@ -372,7 +372,7 @@ class RelianceHMO
                                 'plan_id' => 24
                             ]
                         ]
-                            ],
+                    ],
                     [
                         'payment_frequency' => 'q',
                         'first_name' => 'Ben',

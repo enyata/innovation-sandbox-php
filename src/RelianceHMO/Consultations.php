@@ -22,7 +22,7 @@ class Consultations
             $params = isset($data['params']) ? $data['params'] : '';
             $host = isset($data['host']) ? $data['host'] : '';
 
-            return $this->httpRequest->trigger($host, 'GET', '', $params, $data);
+            return $this->httpRequest->trigger($host, 'POST', '', $params, $data);
         } catch (\Exception $error) {
             return $error->getMessage();
         }

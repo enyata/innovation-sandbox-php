@@ -61,7 +61,7 @@ $instance1 = new Clients();
 
 $this->instance1->Signup([
     'host' => 'Your host url',
-    'sandbox-key' => 'your sandbox key',
+    'sandbox_key' => 'your sandbox key',
     'payload'  => [
         'transfer_code' => '1234WXYZ',
         'company_name' => 'Justice League',
@@ -358,7 +358,7 @@ $instance1->Profile([
         'sex' => 'f',
         'date_of_birth' => '1991-03-03',
         'home_address' => '85, outer space',
-        'has_smartphone' => true,
+        'has_smartphone' => 'true',
         'profile_picture_filename' => 'ttffddzp.png',
         'hash' => 'ZDZhMTlYxRkQ0ODRDNisrMzQ'
     ]
@@ -791,7 +791,7 @@ $instance1->Fund([
     'host' => 'your host url',
     'sandbox_key' => 'your sandbox key',
     'payload'  => [
-        'amount' =>  250000
+        'amount' =>  '250000'
     ]
 ]);
 ```

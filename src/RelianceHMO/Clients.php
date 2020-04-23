@@ -22,7 +22,6 @@ class Clients
             $payload = isset($data['payload']) ? $data['payload'] : '';
             $host = isset($data['host']) ? $data['host'] : '';
 
-
             return $this->httpRequest->trigger($host, 'POST', $payload, '', $data);
         } catch (\Exception $error) {
             return $error->getMessage();
@@ -32,11 +31,10 @@ class Clients
     public function Renew($data)
     {
         try {
-            
             $payload = isset($data['payload']) ? $data['payload'] : '';
             $host = isset($data['host']) ? $data['host'] : '';
             $data['path'] = '/relianceHMO/clients/' . $data['id'] . '/renew';
-            
+
             return $this->httpRequest->trigger($host, 'PUT', $payload, '', $data);
         } catch (\Exception $error) {
             return $error->getMessage();

@@ -27,7 +27,7 @@ class Wallet
             return $error->getMessage();
         }
     }
-    
+
     public function Transactions($data)
     {
         try {
