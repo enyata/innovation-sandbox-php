@@ -19,8 +19,10 @@ class Transfer
     {
         try {
             $data['path'] = '/sterling/TransferAPIs/api/Spay/InterbankNameEnquiry';
+            $params = isset($data['params']) ? $data['params'] : '';
+            $host = isset($data['host']) ? $data['host'] : '';
 
-            return $this->httpRequest->trigger('', 'GET', '', $data['params'], $data);
+            return $this->httpRequest->trigger($host, 'GET', '', $params, $data);
         } catch (\Exception $error) {
             return $error->getMessage();
         }

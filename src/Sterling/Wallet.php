@@ -5,7 +5,7 @@ namespace InnovationSandbox\Sterling;
 use GuzzleHttp\Client;
 use InnovationSandbox\Sterling\Common\ModuleRequest;
 
-class Account
+class Wallet
 {
     private $httpRequest, $client;
 
@@ -15,10 +15,10 @@ class Account
         $this->httpRequest = new ModuleRequest($this->client);
     }
 
-    public function InterbankTransferReq($data)
+    public function Mobile($data)
     {
         try {
-            $data['path'] = '/sterling/accountapi/api/Spay/InterbankTransferReq';
+            $data['path'] = '/sterling/accountapi/api/Spay/SBPMWalletRequest';
             $payload = isset($data['payload']) ? $data['payload'] : '';
             $host = isset($data['host']) ? $data['host'] : '';
 

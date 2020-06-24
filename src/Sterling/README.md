@@ -150,14 +150,14 @@ use InnovationSandbox\Sterling\Account;
 
 $instance = new Account();
 
-echo json_encode($instance5->InterbankTransferReq([
+echo json_encode($instance->InterbankTransferReq([
         'sandbox_key' => 'Your sandbox_key',
         'subscription_key' => 't',
         'Appid' => 69,
         'ipval' => 0,
         'payload'  => [
             'Referenceid' => '0101',
-            'RequestType' => '0101',
+            'RequestType' => '01',
             'Translocation' => '0101',
             'SessionID' => '01',
             'FromAccount' => '01',
@@ -169,6 +169,297 @@ echo json_encode($instance5->InterbankTransferReq([
             'PaymentReference' => '01',
             'OriginatorAccountName' => '01',
             'translocation' => '01'
+        ]
+        ]));
+```
+
+## Mobile Wallet([options])
+
+Want to perform wallet transactions? It works best with our Mobile Wallet API.
+
+### options
+
+The module accepts options as array of key-value.
+
+#### payload
+
+Request Body
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the type of request being processed.
+
+##### Translocation
+
+##### amt
+
+##### tellerid
+
+##### frmacct
+
+##### toacct
+
+##### exp_code
+
+##### paymentRef
+
+##### remarks
+
+### InnovationSandbox\Sterling\Wallet\Mobile(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```php
+<?php
+use InnovationSandbox\Sterling\Wallet;
+
+$instance = new Wallet();
+
+echo json_encode($instance->Mobile([
+        'sandbox_key' => 'Your sandbox_key',
+        'subscription_key' => 't',
+        'payload'  => [
+               "Referenceid" => "01",
+               "RequestType" => "0",
+               "Translocation" => "01",
+               "amt" => "any:string",
+               "tellerid" => "any:string",
+               "frmacct" => "any:string",
+               "toacct" => "any:string",
+               "exp_code" => "any:string",
+               "paymentRef" => "any:string",
+               "remarks" => "any:string"
+        ]
+        ]));
+```
+
+## BillPaymtAdvice([options])
+
+This provides the list of all billing services available to a particular billing company.
+
+### options
+
+The module accepts options as array of key-value.
+
+#### payload
+
+Request Body
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the type of request being processed.
+
+##### Translocation
+
+##### amt
+
+##### paymentcode
+
+##### mobile
+
+##### toacct
+
+#####  SubscriberInfo1
+
+##### ActionType
+
+##### nuban
+
+##### email
+
+### InnovationSandbox\Sterling\BillPayment\BillPaymtAdvice(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```php
+<?php
+use InnovationSandbox\Sterling\BillPayment;
+
+$instance = new BillPayment();
+
+echo json_encode($instance->BillPaymtAdvice([
+        'sandbox_key' => 'Your sandbox_key',
+        'subscription_key' => 't',
+        'payload'  => [
+            "Referenceid" => "01",
+            "RequestType" => "0",
+            "Translocation" => "01",
+            "amt" => "any: string",
+            "paymentcode" => "any: string",
+            "mobile" => "any: string",
+            "SubscriberInfo1" => "any: string",
+            "ActionType" => "any: string",
+            "nuban" => "any: string",
+            "email" => "any:string"
+        ]
+        ]));
+```
+
+## BillPaymtAdvice([options])
+
+This provides the list of all billing services available to a particular billing company.
+
+### options
+
+The module accepts options as array of key-value.
+
+#### payload
+
+Request Body
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the type of request being processed.
+
+##### Translocation
+
+##### amt
+
+##### paymentcode
+
+##### mobile
+
+##### toacct
+
+#####  SubscriberInfo1
+
+##### ActionType
+
+##### nuban
+
+##### email
+
+### InnovationSandbox\Sterling\BillPayment\BillPaymtAdvice(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```php
+<?php
+use InnovationSandbox\Sterling\BillPayment;
+
+$instance = new BillPayment();
+
+echo json_encode($instance->BillPaymtAdvice([
+        'sandbox_key' => 'Your sandbox_key',
+        'subscription_key' => 't',
+        'payload'  => [
+            "Referenceid" => "01",
+            "RequestType" => "0",
+            "Translocation" => "01",
+            "amt" => "any: string",
+            "paymentcode" => "any: string",
+            "mobile" => "any: string",
+            "SubscriberInfo1" => "any: string",
+            "ActionType" => "any: string",
+            "nuban" => "any: string",
+            "email" => "any:string"
+        ]
+        ]));
+```
+
+## BillersPaymentItems([options])
+
+This provides the list of all billing services available to a particular billing company.
+
+### options
+
+The module accepts options as array of key-value.
+
+#### payload
+
+Request Params
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the type of request being processed.
+
+##### Translocation
+
+##### Bvn
+
+##### billerid
+
+### InnovationSandbox\Sterling\BillPayment\BillersPaymentItems(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```php
+<?php
+use InnovationSandbox\Sterling\BillPayment;
+
+$instance = new BillPayment();
+
+echo json_encode($instance->BillersPaymentItems([
+        'sandbox_key' => 'Your sandbox_key',
+        'subscription_key' => 't',
+        'params'  => [
+            "Referenceid" => "01",
+            "RequestType" => "0",
+            "Translocation" => "01",
+            "Bvn" => "any: string",
+            "billerid" => "any: string"
+        ]
+        ]));
+```
+
+## BillersISW([options])
+
+This provides the list of all billing services available to a particular billing company.
+
+### options
+
+The module accepts options as array of key-value.
+
+#### payload
+
+Request Params
+
+##### Referenceid
+
+This is the unique number that identifies transactions/request.
+
+##### RequestType
+
+The is the type of request being processed.
+
+##### Translocation
+
+##### Bvn
+
+### InnovationSandbox\Sterling\BillPayment\BillersISW(credentials)
+
+In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
+
+```php
+<?php
+use InnovationSandbox\Sterling\BillPayment;
+
+$instance = new BillPayment();
+
+echo json_encode($instance->BillersISW([
+        'sandbox_key' => 'Your sandbox_key',
+        'subscription_key' => 't',
+        'params'  => [
+            "Referenceid" => "01",
+            "RequestType" => "0",
+            "Translocation" => "01",
+            "Bvn" => "any: string"
         ]
         ]));
 ```
