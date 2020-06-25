@@ -226,13 +226,13 @@ echo json_encode($instance->Mobile([
                "Referenceid" => "01",
                "RequestType" => "0",
                "Translocation" => "01",
-               "amt" => "any:string",
-               "tellerid" => "any:string",
-               "frmacct" => "any:string",
-               "toacct" => "any:string",
-               "exp_code" => "any:string",
-               "paymentRef" => "any:string",
-               "remarks" => "any:string"
+               "amt" => "Billing Amount || 2000",
+               "tellerid" => "Teller ID || 0451",
+               "frmacct" => "Transaction Sender Account || 0051561375",
+               "toacct" => "Transaction Recipient Account || 0037514056",
+               "exp_code" => "Transaction exp code || 01",
+               "paymentRef" => "Input Payment Reference || 01",
+               "remarks" => "Transaction remarks || Monthly subscription"
         ]
         ]));
 ```
@@ -292,79 +292,13 @@ echo json_encode($instance->BillPaymtAdvice([
             "Referenceid" => "01",
             "RequestType" => "0",
             "Translocation" => "01",
-            "amt" => "any: string",
-            "paymentcode" => "any: string",
-            "mobile" => "any: string",
-            "SubscriberInfo1" => "any: string",
-            "ActionType" => "any: string",
-            "nuban" => "any: string",
-            "email" => "any:string"
-        ]
-        ]));
-```
-
-## BillPaymtAdvice([options])
-
-This provides the list of all billing services available to a particular billing company.
-
-### options
-
-The module accepts options as array of key-value.
-
-#### payload
-
-Request Body
-
-##### Referenceid
-
-This is the unique number that identifies transactions/request.
-
-##### RequestType
-
-The is the type of request being processed.
-
-##### Translocation
-
-##### amt
-
-##### paymentcode
-
-##### mobile
-
-##### toacct
-
-#####  SubscriberInfo1
-
-##### ActionType
-
-##### nuban
-
-##### email
-
-### InnovationSandbox\Sterling\BillPayment\BillPaymtAdvice(credentials)
-
-In additions to the credentials stated above a 'payload' key with addition request credentials as object of key values should be added to the object. For example
-
-```php
-<?php
-use InnovationSandbox\Sterling\BillPayment;
-
-$instance = new BillPayment();
-
-echo json_encode($instance->BillPaymtAdvice([
-        'sandbox_key' => 'Your sandbox_key',
-        'subscription_key' => 't',
-        'payload'  => [
-            "Referenceid" => "01",
-            "RequestType" => "0",
-            "Translocation" => "01",
-            "amt" => "any: string",
-            "paymentcode" => "any: string",
-            "mobile" => "any: string",
-            "SubscriberInfo1" => "any: string",
-            "ActionType" => "any: string",
-            "nuban" => "any: string",
-            "email" => "any:string"
+            "amt" => "Billing Amount || 2000",
+            "paymentcode" => "Billing Payment Code || 01",
+            "mobile" => "Sender Mobile Number || 08051561375",
+            "SubscriberInfo1" => "Subscriber Information || 0037514056",
+            "ActionType" => "Type Of Billing Action || 01",
+            "nuban" => "Sender Account Number || 0037514056",
+            "email" => "Sender Email Address || sender@gmail.com"
         ]
         ]));
 ```
@@ -412,8 +346,8 @@ echo json_encode($instance->BillersPaymentItems([
             "Referenceid" => "01",
             "RequestType" => "0",
             "Translocation" => "01",
-            "Bvn" => "any: string",
-            "billerid" => "any: string"
+            "Bvn" => "any: Account BVN Number || 2098765428",
+            "billerid" => "Biller Service Identity || 002"
         ]
         ]));
 ```
@@ -459,7 +393,7 @@ echo json_encode($instance->BillersISW([
             "Referenceid" => "01",
             "RequestType" => "0",
             "Translocation" => "01",
-            "Bvn" => "any: string"
+            "Bvn" => "Account BVN Number || 2098765428"
         ]
         ]));
 ```
