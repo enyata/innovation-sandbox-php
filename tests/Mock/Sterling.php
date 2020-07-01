@@ -10,7 +10,31 @@ class Sterling
         $this->faker = Faker\Factory::create();
     }
 
-    public function KeyErrorResponse()
+    public function InvalidKeyRequest()
+    {
+        return [
+            'sandbox_key' => 'some_key',
+            'subscription_key' => 't'
+        ];
+    }
+
+    public function InvalidKeyResponse()
+    {
+        return [
+            'error' => 'Expired/Invalid Sandbox Key.',
+            'statusCode' => 403
+        ];
+    }
+
+    public function NoKeyRequest()
+    {
+        return [
+            'sandbox_key' => '',
+            'subscription_key' => 't'
+        ];
+    }
+
+    public function NoKeyResponse()
     {
         return [
             'error' => 'Unauthorized. Please check your credentials.',
@@ -18,15 +42,7 @@ class Sterling
         ];
     }
 
-    public function InvalidKeyErrorResponse()
-    {
-        return [
-            'error' => 'Expired/Invalid Sanbox Key.',
-            'statusCode' => 403
-        ];
-    }
-
-    public function WrongPayloadErrorResponse()
+    public function WrongPayloadResponse()
     {
         return [
             'error' => [
@@ -34,14 +50,6 @@ class Sterling
                 'Message' => 'Unmatched Request, Refer to documentation.'
             ],
             'statusCode' => 400
-        ];
-    }
-
-    public function NoKeyRequest()
-    {
-        return [
-            'sandbox_key' => '$this->sandbox_key',
-            'organisation_code' => $this->organisation_code
         ];
     }
 
@@ -122,6 +130,124 @@ class Sterling
                     'ResponseText' => 'Your transaction has been submitted for processing.',
                     'status' => '00'
                 ]
+            ]
+        ];
+    }
+
+
+    public function mobileWalletRequest()
+    {
+        return [
+            'sandbox_key' => 'abcdefghijklmnop',
+            'subscription_key' => 't',
+            'payload'  => [
+                'Referenceid' => $this->faker->regexify('[0-9]{10}'),
+                'RequestType' => $this->faker->regexify('[0-9]{10}'),
+                'Translocation' => $this->faker->regexify('[0-9]{10}'),
+                'amt' => $this->faker->regexify('[A-Za-z0-9]{7}'),
+                'tellerid' => $this->faker->regexify('[A-Za-z0-9]{7}'),
+                'frmacct' => $this->faker->regexify('[A-Za-z0-9]{7}'),
+                'toacct' => $this->faker->regexify('[A-Za-z0-9]{7}'),
+                'exp_code' => $this->faker->regexify('[A-Za-z0-9]{7}'),
+                'paymentRef' => $this->faker->regexify('[A-Za-z0-9]{7}'),
+                'remarks' => $this->faker->regexify('[A-Za-z0-9]{7}')
+            ]
+        ];
+    }
+
+    public function mobileWalletResponse()
+    {
+        return [
+            'message' => 'OK',
+            'data' => [
+                'Status' => '200 OK',
+                'Response' => '00',
+                'Data' => 'Sent'
+            ]
+        ];
+    }
+
+    public function GetBillerPmtItemsResponse()
+    {
+        return [
+            'message' => 'OK',
+            'data' => [
+                'Status' => '200 OK',
+                'Response' => '00',
+                'Message' => 'Message sent was successful'
+            ]
+        ];
+    }
+
+    public function GetBillerPmtItemsRequest()
+    {
+        return [
+            'sandbox_key' => 'abcdefghijklmnop',
+            'subscription_key' => 't',
+            'params'  => [
+                'Referenceid' => '01',
+                'RequestType' => '01',
+                'Translocation' => '01',
+                'Bvn' => $this->faker->regexify('[A-Za-z0-9]{7}'),
+                'billerid' => $this->faker->regexify('[A-Za-z0-9]{7}')
+            ]
+        ];
+    }
+
+    public function GetBillersISWResponse()
+    {
+        return [
+            'message' => 'OK',
+            'data' => [
+                'Status' => '200 OK',
+                'Response' => '00',
+                'Message' => 'Message sent was successful'
+            ]
+        ];
+    }
+
+    public function GetBillersISWRequest()
+    {
+        return [
+            'sandbox_key' => 'abcdefghijklmnop',
+            'subscription_key' => 't',
+            'params'  => [
+                'Referenceid' => '01',
+                'RequestType' => '01',
+                'Translocation' => '01',
+                'Bvn' => $this->faker->regexify('[A-Za-z0-9]{7}')
+            ]
+        ];
+    }
+
+    public function BillPaymtAdviceResponse()
+    {
+        return [
+            'message' => 'OK',
+            'data' => [
+                'Status' => '200 OK',
+                'Response' => '00',
+                'Message' => 'Message sent was successful'
+            ]
+        ];
+    }
+
+    public function BillPaymtAdviceRequest()
+    {
+        return [
+            'sandbox_key' => 'abcdefghijklmnop',
+            'subscription_key' => 't',
+            'payload'  => [
+                "Referenceid" =>  '01',
+                "RequestType" =>  '0',
+                "Translocation" =>  '01',
+                "amt" =>  $this->faker->regexify('[A-Za-z0-9]{7}'),
+                "paymentcode" =>  $this->faker->regexify('[A-Za-z0-9]{7}'),
+                "mobile" =>  $this->faker->regexify('[A-Za-z0-9]{7}'),
+                "SubscriberInfo1" =>  $this->faker->regexify('[A-Za-z0-9]{7}'),
+                "ActionType" =>  $this->faker->regexify('[A-Za-z0-9]{7}'),
+                "nuban" =>  $this->faker->regexify('[A-Za-z0-9]{7}'),
+                "email" =>  $this->faker->regexify('[A-Za-z0-9]{7}')
             ]
         ];
     }

@@ -23,13 +23,16 @@ class ModuleRequest
     public function trigger($host = '', $method = 'POST', $payload = '', $params = '', $credentials)
     {
         try {
+            $Appid = isset($credentials['Appid']) ? $credentials['Appid'] : '';
+            $ipval = isset($credentials['ipval']) ? $credentials['ipval'] : '';
+
             $headers = [
                 'Sandbox-Key' => $credentials['sandbox_key'],
                 'Ocp-Apim-Subscription-Key' => $credentials['subscription_key'],
                 'Ocp-Apim-Trace' => 'true',
-                'Appid' => $credentials['Appid'],
+                'Appid' => $Appid,
                 'Content-Type' => 'application/json',
-                'ipval' => $credentials['ipval']
+                'ipval' => $ipval
             ];
 
             $requestData = [
