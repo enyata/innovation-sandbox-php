@@ -5,7 +5,7 @@ namespace InnovationSandbox\SWIFT;
 use GuzzleHttp\Client;
 use InnovationSandbox\SWIFT\Common\ModuleRequest;
 
-class SwiftGPIForCorporates
+class SwiftGPICorporate
 {
     private $httpRequest, $client;
 

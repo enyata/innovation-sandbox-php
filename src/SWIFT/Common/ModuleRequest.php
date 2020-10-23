@@ -63,9 +63,12 @@ class ModuleRequest
 
             return $this->response->getBody()->getContents();
         } catch (RequestException $error) {
-            return ErrorHandler::apiError($error);
-        } catch (\Exception $error) {
-            return ErrorHandler::moduleError($error);
+            echo $error->getMessage();
+            // return ErrorHandler::apiError($error);
+        
         }
+        // } catch (\Exception $error) {
+        //     return ErrorHandler::moduleError($error);
+        // }
     }
 }
