@@ -15,7 +15,7 @@ class BillPayment
         $this->httpRequest = new ModuleRequest($this->client);
     }
 
-    public function BillPaymtAdvice($data)
+    public function BillPaymentAdvice($data)
     {
         try {
             $data['path'] = '/sterling/billpaymentapi/api/Spay/BillPaymtAdviceRequestISW';

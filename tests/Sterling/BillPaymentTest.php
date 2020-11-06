@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use \InnovationSandbox\Sterling\Billpayment;
+use \InnovationSandbox\Sterling\BillPayment;
 
 class BillPaymentTest extends TestCase
 {
@@ -26,7 +26,7 @@ class BillPaymentTest extends TestCase
             'handler' => $this->mockHandler,
             'base_uri' => $this->base_uri
         ]);
-        $this->apiClient = new Billpayment($httpClient);
+        $this->apiClient = new BillPayment($httpClient);
         $this->mock = new Sterling();
     }
 
@@ -132,7 +132,7 @@ class BillPaymentTest extends TestCase
             )
         ));
 
-        $result = json_decode($this->apiClient->BillPaymtAdvice($data));
+        $result = json_decode($this->apiClient->BillPaymentAdvice($data));
         $this->assertObjectHasAttribute('message', $result);
         $this->assertObjectHasAttribute('data', $result);
         $this->assertEquals('200 OK', $result->data->Status);
