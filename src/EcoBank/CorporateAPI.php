@@ -31,7 +31,7 @@ class CorporateAPI
     public function CardPayment($data)
     {
         try {
-            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['consumer_lab_key'] : '';
+            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['payload']['consumer_lab_key'] : '';
             $data['payload']['secureHash'] = hash('sha512', $consumerLabKey);
             $data['path'] = '/ecobank/corporateapi/merchant/card';
             $payload = isset($data['payload']) ? $data['payload'] : '';
@@ -48,7 +48,7 @@ class CorporateAPI
     public function MomoPayment($data)
     {
         try {
-            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['consumer_lab_key'] : '';
+            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['payload']['consumer_lab_key'] : '';
             $data['payload']['secureHash'] = hash('sha512', $consumerLabKey);
             $data['path'] = '/ecobank/corporateapi/merchant/momo';
             $payload = isset($data['payload']) ? $data['payload'] : '';
@@ -66,7 +66,7 @@ class CorporateAPI
     public function MCC($data)
     {
         try {
-            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['consumer_lab_key'] : '';
+            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['payload']['consumer_lab_key'] : '';
             $data['payload']['secureHash'] = hash('sha512', $consumerLabKey);
             $data['path'] = '/ecobank/corporateapi/merchant/getmcc';
             $payload = isset($data['payload']) ? $data['payload'] : '';
@@ -84,7 +84,7 @@ class CorporateAPI
     public function CreateQR($data)
     {
         try {
-            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['consumer_lab_key'] : '';
+            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['payload']['consumer_lab_key'] : '';
             $data['payload']['secureHash'] = hash('sha512', $consumerLabKey);
             $data['path'] = '/ecobank/corporateapi/merchant/createqr';
             $payload = isset($data['payload']) ? $data['payload'] : '';
@@ -102,7 +102,7 @@ class CorporateAPI
     public function QR($data)
     {
         try {
-            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['consumer_lab_key'] : '';
+            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['payload']['consumer_lab_key'] : '';
             $data['payload']['secureHash'] = hash('sha512', $consumerLabKey);
             $data['path'] = '/ecobank/corporateapi/merchant/qr';
             $payload = isset($data['payload']) ? $data['payload'] : '';
@@ -120,7 +120,7 @@ class CorporateAPI
     public function Statement($data)
     {
         try {
-            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['consumer_lab_key'] : '';
+            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['payload']['consumer_lab_key'] : '';
             $data['payload']['secureHash'] = hash('sha512', $consumerLabKey);
             $data['path'] = '/ecobank/corporateapi/merchant/statement';
             $payload = isset($data['payload']) ? $data['payload'] : '';
@@ -138,7 +138,7 @@ class CorporateAPI
     public function Payment($data)
     {
         try {
-            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['consumer_lab_key'] : '';
+            $consumerLabKey = isset($data['payload']['consumer_lab_key']) ? $data['payload']['consumer_lab_key'] : '';
             $data['payload']['secureHash'] = hash('sha512', $consumerLabKey);
             $data['path'] = '/ecobank/corporateapi/payment/payment';
             $payload = isset($data['payload']) ? $data['payload'] : '';

@@ -56,7 +56,7 @@ class EcoBank
         return [
             "sandbox_key" => "abcdefghijklmnop",
             "payload" => [
-                header => [
+                "header" => [
                     "affcode" => "EGH",
                     "requestId" => "123456",
                     "requestToken" => "ab104d4f4fbff91be354a49f26ab8991610c4174233447ef4101f61f09879371e0b8d2ae8eb3edabe45cb30be88ec2390deeeab6607bbbd8faa5b7c0fb82a35b",
